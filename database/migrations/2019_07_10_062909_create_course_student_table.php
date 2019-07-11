@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAvatarsTable extends Migration
+class CreateCourseStudentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,17 @@ class CreateAvatarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('avatars', function (Blueprint $table) {
+        Schema::create('course_student', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre', 70);
-            $table->string('avatar' , 130);
+            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('student_id');
             $table->timestamps();
 
-            //others
+             //relationships
+             $table->foreign('course_id')->references('id')->on('courses');
+             $table->foreign('student_id')->references('id')->on('students');
+
+              //others
             $table->charset = 'utf8';   
             $table->collation = 'utf8_unicode_ci';
         });
@@ -32,6 +36,6 @@ class CreateAvatarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avatars');
+        Schema::dropIfExists('course_student');
     }
 }

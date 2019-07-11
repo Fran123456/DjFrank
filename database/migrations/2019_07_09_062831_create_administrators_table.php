@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAvatarsTable extends Migration
+class CreateAdministratorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,17 @@ class CreateAvatarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('avatars', function (Blueprint $table) {
+        Schema::create('administrators', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre', 70);
-            $table->string('avatar' , 130);
+            $table->string('title')->nullable();
+            $table->text('biography')->nullable();
+            $table->string('youtube_channel')->nullable();
+            $table->unsignedBigInteger('user_id');
+
             $table->timestamps();
+
+            //relationships
+            $table->foreign('user_id')->references('id')->on('users');
 
             //others
             $table->charset = 'utf8';   
@@ -32,6 +38,6 @@ class CreateAvatarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avatars');
+        Schema::dropIfExists('administrators');
     }
 }
