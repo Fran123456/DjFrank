@@ -2,7 +2,7 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Course;
+
 use Faker\Generator as Faker;
 use App\Course;
 use App\Administrator;
@@ -19,7 +19,7 @@ $factory->define(Course::class, function (Faker $faker) {
       'level_id' => Level::all()->random()->id,
        'name' => $name,
        'description'=> $faker->paragraph,
-       'slug' => str_slug($name, '-'),
+       'slug' => Str::slug($name, '-'),
        'picture' => Image::image(storage_path().'/app/public/courses', 600, 350, 'business', false),
        'status' => $status,
     ];

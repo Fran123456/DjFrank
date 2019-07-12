@@ -21,8 +21,8 @@ $factory->define(User::class, function (Faker $faker) {
 	 $name = $faker->name . " " . $faker->lastName;
     return [
         'name' => $name,
-        'slug' =>srt_slug($name, '-'),
-        'picture' => Avatar::all()->random()->id,
+        'slug' =>Str::slug($name, '-'),
+        'picture' => Avatar::all()->random()->avatar,
         'phone' => $faker->phoneNumber,
         'email' => $faker->unique()->safeEmail,
         'role_id' => Role::all()->random()->id,
