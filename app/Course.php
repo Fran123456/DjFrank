@@ -77,7 +77,18 @@ class Course extends Model
      */
     public function students()
     {
-    	// belongsToMany(RelatedModel, foreignKey = students_id, keyOnRelatedModel = id)
+    	//belongsToMany(RelatedModel, foreignKey = students_id, keyOnRelatedModel = id)
     	return $this->belongsToMany(Students::class);
+    }
+
+    /**
+     * Course belongs to Administrator.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function administrator()
+    {
+        // belongsTo(RelatedModel, foreignKey = administrator_id, keyOnRelatedModel = id)
+        return $this->belongsTo(Administrator::class);
     }
 }

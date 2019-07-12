@@ -36,4 +36,48 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * User belongs to Rol.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function rol()
+    {
+        // belongsTo(RelatedModel, foreignKey = rol_id, keyOnRelatedModel = id)
+        return $this->belongsTo(Rol::class);
+    }
+
+    /**
+     * User has one Student.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function student()
+    {
+        // hasOne(RelatedModel, foreignKeyOnRelatedModel = user_id, localKey = id)
+        return $this->hasOne(Student::class);
+    }
+
+    /**
+     * User has one Administrator.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function administrator()
+    {
+        // hasOne(RelatedModel, foreignKeyOnRelatedModel = user_id, localKey = id)
+        return $this->hasOne(Administrator::class);
+    }
+
+    /**
+     * User has one SocialAccount.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function socialAccount()
+    {
+        // hasOne(RelatedModel, foreignKeyOnRelatedModel = user_id, localKey = id)
+        return $this->hasOne(UserSocialAccount::class);
+    }
 }

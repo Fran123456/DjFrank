@@ -7,6 +7,11 @@ use App\Avatar;
 use App\Student;
 use App\Category;
 use App\Level;
+use App\Course;
+use App\Goal;
+use App\Requirement;
+use App\Administrator;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -59,6 +64,11 @@ class DatabaseSeeder extends Seeder
            factory(Student::class, 1)->create([
                'user_id' => $u->id,
            ]);
+
+           factory(Administrator::class, 1)->create([
+               'user_id' => $u->id,
+           ]);
+
         });
       
        //Factory from users also make a student register
@@ -69,6 +79,13 @@ class DatabaseSeeder extends Seeder
           'user_id' => $u->id
        	]);
        });
+
+       //Factory from course
+       factory(Course::class, 1)->create()
+      ->each(function(Course $c){
+        $c->goals()->saveMany(factory(Goal::class, 2)->create());
+        $c->requirements()->saveMany(factory(Requirement::class, 2)->create());
+      });
 
 
 

@@ -12,7 +12,7 @@ use Faker\Provider\Image;
 
 $factory->define(Course::class, function (Faker $faker) {
 	$name =$faker->sentence;
-	$status = Couse::PUBLISHED;
+	$status = Course::PUBLISHED;
     return [
       'admin_id' => Administrator::all()->random()->id,
       'category_id' => Category::all()->random()->id,
