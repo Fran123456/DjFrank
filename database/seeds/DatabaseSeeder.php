@@ -80,7 +80,7 @@ class DatabaseSeeder extends Seeder
        	]);
        });
 
-       //Factory from course
+       //Factory from course also make a goals and requirent for a course
        factory(Course::class, 1)->create()
       ->each(function(Course $c){
         $c->goals()->saveMany(factory(Goal::class, 2)->create());
