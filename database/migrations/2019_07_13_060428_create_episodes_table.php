@@ -22,11 +22,13 @@ class CreateEpisodesTable extends Migration
             $table->string('download')->nullable();
             $table->string('material')->nullable();
             $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('section_id');
             $table->timestamps();
             $table->softDeletes();
 
-             //relationships
-             $table->foreign('course_id')->references('id')->on('courses');
+            //relationships
+            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('section_id')->references('id')->on('sections');
 
              //others
             $table->charset = 'utf8';   
