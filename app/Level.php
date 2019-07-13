@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Level extends Model
 {
+   
+
     /**
-     * Level has one Course.
+     * Level has many Curses.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function course()
+    public function curses()
     {
-    	// hasOne(RelatedModel, foreignKeyOnRelatedModel = level_id, localKey = id)
-    	return $this->hasOne(Course::class);
+        // hasMany(RelatedModel, foreignKeyOnRelatedModel = level_id, localKey = id)
+        return $this->hasMany(Curse::class);
     }
 }
