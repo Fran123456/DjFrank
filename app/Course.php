@@ -27,6 +27,28 @@ class Course extends Model
     }
 
     /**
+     * Course has many Sections.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function sections()
+    {
+        // hasMany(RelatedModel, foreignKeyOnRelatedModel = course_id, localKey = id)
+        return $this->hasMany(Section::class);
+    }
+
+    /**
+     * Course has many Episodes.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function episodes()
+    {
+        // hasMany(RelatedModel, foreignKeyOnRelatedModel = course_id, localKey = id)
+        return $this->hasMany(Episode::class);
+    }
+
+    /**
      * Course has many .
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
