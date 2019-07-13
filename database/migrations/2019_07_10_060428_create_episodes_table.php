@@ -21,7 +21,6 @@ class CreateEpisodesTable extends Migration
             $table->string('picture')->nullable();
             $table->string('download')->nullable();
             $table->string('material')->nullable();
-            $table->string('section');
             $table->unsignedBigInteger('course_id');
             $table->timestamps();
             $table->softDeletes();
