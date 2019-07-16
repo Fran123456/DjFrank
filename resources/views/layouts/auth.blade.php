@@ -37,6 +37,19 @@
 
      <!-- composition scripts -->
     <script src="{{ asset('js/plugins.js') }}"></script>
+
+    <style type="text/css">
+        
+            .login-page {
+         
+                background: url('images/backlogin2.jpg') no-repeat no-repeat;
+                background-size: 1900px 1000px;
+                padding-left: 0;
+                max-width: 360px;
+                margin: 5% auto;
+                overflow-x: hidden;
+            }
+    </style>
     
 </head>
 <body class="login-page">

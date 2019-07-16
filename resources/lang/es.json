@@ -1,3 +1,9 @@
 {
-  "Socialite": "Accede con redes sociales."
+  "titlelogin": "¡Inicia sesión en tu cuenta!",
+  "email": "Correo electronico",
+  "password":"Contrase",
+  "rememberMe":"Recordar",
+  "login":"ACCEDE",
+  "registerNow":"Registrate!",
+  "forgotPassword":"¿Olvidaste contraseña?"
 }

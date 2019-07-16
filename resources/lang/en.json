@@ -1,3 +1,9 @@
 {
-	"Socialite": "Log in with socialite"
+	"titlelogin": "Log in to your account!",
+	"email": "Email",
+	"password":"Password",
+	"rememberMe":"Remember Me",
+	"login":"LOG IN",
+	"registerNow":"Register Now!",
+	"forgotPassword":"Forgot Password?"
 }
