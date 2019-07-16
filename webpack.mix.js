@@ -56,7 +56,11 @@ mix.scripts([
     'resources/js/Admin/js/admin.js', //Custom Js
     'resources/js/Admin/js/pages/index.js', //Custom Js
     'resources/js/Admin/js/demo.js', //Demo Js
+    'resources/js/Admin/plugins/bootstrap-notify/bootstrap-notify.js', //Demo Js
+    'resources/js/Admin/js/pages/ui/notifications.js'
 ], 'public/js/plugins.js');
+
+
 
 mix.sass('resources/sass/default.scss', 'public/css');
 //remember, boostrap core is not runing on laravelmix 

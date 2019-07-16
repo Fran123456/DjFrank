@@ -44,7 +44,13 @@ class LoginController extends Controller
     }
 
     public function handleProviderCallback($driver){
+        if(!request()->has('code') || request()->has('denied')){
+            session()->flash('message',['danger','sessionFailed']);
+            return redirect('login');
+        }
+
         $socialUser = Socialite::driver($driver)->user();
         dd($socialUser);
+        
     }
 }

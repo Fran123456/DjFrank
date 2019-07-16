@@ -7,6 +7,15 @@
             <img height="100" width="100" class="text-center" src="images/icon.png">
         </div>
         <div class="card">
+
+            @if(session('message'))
+            <script type="text/javascript">
+                showNotification("bg-blue-grey", "{{ __('sessionFailed') }}", "top", "center", "animated bounceIn", "animated bounceOut");
+            </script>
+            @endif
+
+            
+
             <div class="body">
                 <form id="sign_in" method="POST" action="{{ route('login') }}">
                 	@csrf
@@ -45,14 +54,19 @@
                         <div class="col-xs-4">
                             <button class="btn btn-block bg-pink waves-effect" type="submit">{{ __('login') }}</button>
                         </div>
-                    </div>
+                    </div><hr>
+                    <div class="row">
+                        
+                        <div class="msg">{{__('Accede con Facebook')}}</div>
+                        <a class="btn btn-block btn-lg bg-facebook waves-effect default" href="{{ route('social_auth' , ['driver' => 'facebook']) }}"><i class="fab fa-facebook-square fa-2x"></i></a>
+                    </div><br>
                     <div class="row m-t-15 m-b--20">
                         <div class="col-xs-6">
-                            <a href="{{ route('register') }}">{{ __('registerNow') }}</a>
+                            <a style="    color: #4172A9;" href="{{ route('register') }}">{{ __('registerNow') }}</a>
                         </div>
                         <div class="col-xs-6 align-right">
                         	@if (Route::has('password.request'))
-                            <a href="{{ route('password.request') }}">{{ __('forgotPassword') }}</a>
+                            <a style="    color: #4172A9;" href="{{ route('password.request') }}">{{ __('forgotPassword') }}</a>
                             @endif 
                         </div>
                     </div>

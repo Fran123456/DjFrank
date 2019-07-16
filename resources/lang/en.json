@@ -10,6 +10,7 @@
 	"name":"Full Name",
 	"confirmPassword":"Confirm Password",
 	"signUp":"SIGN UP",
-	"You already have a membership?":"You already have a membership?"
+	"You already have a membership?":"You already have a membership?",
+	"sessionFailed": "Unable to start session"
   
 }

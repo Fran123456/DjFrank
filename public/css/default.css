@@ -14,3 +14,27 @@
   border-radius: 2px;
 }
 
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.login-page .login-box .msg {
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-page .login-box a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #eee;
+}
+
+.bg-facebook {
+  background-color: #3b5998 !important;
+  color: #fff;
+}
+
