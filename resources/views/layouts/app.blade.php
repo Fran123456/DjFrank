@@ -9,16 +9,33 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+   
+   
+     <link href="{{ asset('css/plugins.css') }}" rel="stylesheet">
      <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/all-themes.css') }}" rel="stylesheet">
+     
+     <!--CUSTOM CSS-->
+     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+ 
+    <!-- Bootstrap Core Css -->
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+     <!-- composition scripts -->
+    <script src="{{ asset('js/plugins.js') }}"></script>
     
 </head>
 <body>
