@@ -1,8 +1,7 @@
 @extends('layouts.auth')
 
 @section('content')
-<div class="">
-    <div class="">
+    <body class="login-page">
         <div class="login-box">
         <div class="logo text-center">
             <img height="100" width="100" class="text-center" src="images/icon.png">
@@ -65,5 +64,5 @@
         
         
     </div>
-</div></div>
+</body>
 @endsection

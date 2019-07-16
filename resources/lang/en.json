@@ -1,9 +1,15 @@
 {
 	"titlelogin": "Log in to your account!",
-	"email": "Email",
+	"email": "Email Address",
 	"password":"Password",
 	"rememberMe":"Remember Me",
 	"login":"LOG IN",
 	"registerNow":"Register Now!",
-	"forgotPassword":"Forgot Password?"
+	"forgotPassword":"Forgot Password?",
+	"titleRegister":"Register a new membership",
+	"name":"Full Name",
+	"confirmPassword":"Confirm Password",
+	"signUp":"SIGN UP",
+	"You already have a membership?":"You already have a membership?"
+  
 }

@@ -1,9 +1,15 @@
 {
   "titlelogin": "¡Inicia sesión en tu cuenta!",
   "email": "Correo electronico",
-  "password":"Contrase",
+  "password":"Contraseña",
   "rememberMe":"Recordar",
   "login":"ACCEDE",
   "registerNow":"Registrate!",
-  "forgotPassword":"¿Olvidaste contraseña?"
+  "forgotPassword":"¿Olvidaste contraseña?",
+  "titleRegister":"Registrate",
+  "name":"Nombre completo",
+  "confirmPassword":"Confirma contraseña",
+  "signUp":"REGISTRATE",
+  "You already have a membership?":"¿Ya tienes cuenta?"
+
 }

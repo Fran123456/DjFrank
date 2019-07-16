@@ -41,8 +41,16 @@
     <style type="text/css">
         
             .login-page {
-         
                 background: url('images/backlogin2.jpg') no-repeat no-repeat;
+                background-size: 1900px 1000px;
+                padding-left: 0;
+                max-width: 360px;
+                margin: 5% auto;
+                overflow-x: hidden;
+            }
+
+            .signup-page {
+                 background: url('images/backlogin2.jpg') no-repeat no-repeat;
                 background-size: 1900px 1000px;
                 padding-left: 0;
                 max-width: 360px;
@@ -52,7 +60,7 @@
     </style>
     
 </head>
-<body class="login-page">
+
      @yield('content')
-</body>
+
 </html>
