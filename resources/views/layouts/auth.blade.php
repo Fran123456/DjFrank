@@ -26,6 +26,7 @@
      <link href="{{ asset('css/plugins.css') }}" rel="stylesheet">
      <link href="{{ asset('css/style.css') }}" rel="stylesheet">
      <link href="{{ asset('css/all-themes.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/default.css') }}" rel="stylesheet">
      
      <!--CUSTOM CSS-->
      <link href="{{ asset('css/app.css') }}" rel="stylesheet">

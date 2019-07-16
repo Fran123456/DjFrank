@@ -30,7 +30,7 @@ mix.styles([
     'resources/sass/Admin/all-themes.css',
 ], 'public/css/all-themes.css');
 
-mix.sass('resources/sass/app.scss', 'public/css');
+//mix.sass('resources/sass/app.scss', 'public/css');
 
 mix.styles([
 	'resources/sass/Admin/waves.css',
@@ -58,6 +58,6 @@ mix.scripts([
     'resources/js/Admin/js/demo.js', //Demo Js
 ], 'public/js/plugins.js');
 
-
+mix.sass('resources/sass/default.scss', 'public/css');
 //remember, boostrap core is not runing on laravelmix 
 //because it has a .min css and js
