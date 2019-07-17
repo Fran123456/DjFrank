@@ -21,22 +21,22 @@ const mix = require('laravel-mix');
 //mix.sass('resources/sass/Admin/scss/themes/_all-themes.scss', 'public/css');
 
 
-mix.styles([
-    'resources/sass/Admin/style.css',
-], 'public/css/style.css');
+//mix.styles([
+//    'resources/sass/Admin/style.css',
+//], 'public/css/style.css');
 
 
-mix.styles([
-    'resources/sass/Admin/all-themes.css',
-], 'public/css/all-themes.css');
+//mix.styles([
+//    'resources/sass/Admin/all-themes.css',
+//], 'public/css/all-themes.css');
 
 //mix.sass('resources/sass/app.scss', 'public/css');
 
-mix.styles([
-	'resources/sass/Admin/waves.css',
-    'resources/sass/Admin/animate.css',
-    'resources/sass/Admin/morris.css',
-], 'public/css/plugins.css');
+//mix.styles([
+//	'resources/sass/Admin/waves.css',
+//    'resources/sass/Admin/animate.css',
+//    'resources/sass/Admin/morris.css',
+//], 'public/css/plugins.css');
 
 //all js scripts
 mix.scripts([
@@ -53,11 +53,11 @@ mix.scripts([
     'resources/js/Admin/plugins/flot-charts/jquery.flot.categories.js', //Flot Charts Plugin Js
     'resources/js/Admin/plugins/flot-charts/jquery.flot.time.js', //Flot Charts Plugin Js
     'resources/js/Admin/plugins/jquery-sparkline/jquery.sparkline.js', //FSparkline Chart Plugin Js
-    'resources/js/Admin/js/admin.js', //Custom Js
     'resources/js/Admin/js/pages/index.js', //Custom Js
-    'resources/js/Admin/js/demo.js', //Demo Js
     'resources/js/Admin/plugins/bootstrap-notify/bootstrap-notify.js', //Demo Js
-    'resources/js/Admin/js/pages/ui/notifications.js'
+    'resources/js/Admin/js/pages/ui/notifications.js',
+    'resources/js/Admin/js/admin.js', //Custom Js
+    'resources/js/Admin/js/demo.js' //Demo Js
 ], 'public/js/plugins.js');
 
 
@@ -65,3 +65,4 @@ mix.scripts([
 mix.sass('resources/sass/default.scss', 'public/css');
 //remember, boostrap core is not runing on laravelmix 
 //because it has a .min css and js
+

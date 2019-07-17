@@ -9,7 +9,7 @@
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-        <!-- Google Fonts -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
@@ -946,7 +946,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- #END# Latest Social Trends -->
+                <!-- #END# Latest Social Trends --> 
                 <!-- Answered Tickets -->
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">

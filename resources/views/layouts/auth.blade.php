@@ -22,14 +22,14 @@
     <!-- Bootstrap Core Css -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
    
-   
-     <link href="{{ asset('css/plugins.css') }}" rel="stylesheet">
-     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-     <link href="{{ asset('css/all-themes.css') }}" rel="stylesheet">
-     <link href="{{ asset('css/default.css') }}" rel="stylesheet">
-     
+     <link href="{{ asset('css/waves.min.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/all-themes.min.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/materialize.css') }}" rel="stylesheet">
      <!--CUSTOM CSS-->
      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/default.css') }}" rel="stylesheet">
  
     <!-- Bootstrap Core Css -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
