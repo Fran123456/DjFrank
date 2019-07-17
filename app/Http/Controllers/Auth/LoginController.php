@@ -5,6 +5,13 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
+use App\User;
+use App\Student;
+use App\UserSocialAccount;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
 
 
 class LoginController extends Controller
@@ -50,7 +57,49 @@ class LoginController extends Controller
         }
 
         $socialUser = Socialite::driver($driver)->user();
-        dd($socialUser);
+      //  dd($socialUser);
+
+       $user = null;
+        $success = true;
+        $email = $socialUser->email;
+        $check =  User::whereEmail($email)->first();
+
+        if($check){
+            $user = $check;
+        }else{
+            DB::beginTransaction();
+            try{
+
+                 $user = User::create([
+                     "name" => $socialUser->name,
+                     "email" => $email,
+                     "slug" => Str::slug($socialUser->name, '-')
+                   ]);
+                  
+                UserSocialAccount::create([
+                   "user_id" => $user->id,
+                   "provider"=> $driver,
+                   "provider_uid" => $socialUser->id
+                ]);
+
+                Student::create([
+                  "user_id" => $user->id
+                ]);
+
+            }catch(\Exception $exception){
+                  $success = $exception->getMessage();
+                  DB::rollBack();
+            }
+        }
+
+            if($success === true){
+                DB::commit();
+                auth()->LoginUsingId($user->id);
+                return redirect(route("home"));
+            }
+
+            session()->flash('message2', [$success]);
+            return redirect("login");
         
     }
 }

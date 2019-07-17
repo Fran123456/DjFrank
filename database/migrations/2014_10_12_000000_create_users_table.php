@@ -17,13 +17,13 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('slug');
-            $table->string('picture', 150);
-            $table->string('phone', 150);
+            $table->string('picture', 150)->nullable();
+            $table->string('phone', 150)->nullable();
             $table->string('email')->unique();
             $table->unsignedBigInteger('role_id')->nullable();
 
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
 
             //cashier columns
             $table->string('stripe_id')->nullable();

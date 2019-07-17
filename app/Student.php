@@ -13,6 +13,14 @@ class Student extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+  
+  /**
+   * Fields that can be mass assigned.
+   *
+   * @var array
+   */
+  protected $fillable = ['user_id'];
+
     public function courses()
     {
     	// belongsToMany(RelatedModel, foreignKey = courses_id, keyOnRelatedModel = id)

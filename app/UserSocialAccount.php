@@ -12,6 +12,16 @@ class UserSocialAccount extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+
+    /**
+     * Fields that can be mass assigned.
+     *
+     * @var array
+     */
+    protected $fillable = ['user_id','provider','provider_uid'];
+
+
+
     public function user()
     {
     	// belongsTo(RelatedModel, foreignKey = user_id, keyOnRelatedModel = id)

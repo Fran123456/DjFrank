@@ -14,6 +14,12 @@
             </script>
             @endif
 
+             @if(session('message2'))
+            <script type="text/javascript">
+                showNotification("alert-danger", "{{Session('message2')[0]}}", "top", "center", "animated bounceIn", "animated bounceOut");
+            </script>
+            @endif
+
             
 
             <div class="body">
