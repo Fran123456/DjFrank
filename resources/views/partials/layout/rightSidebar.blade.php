@@ -7,7 +7,7 @@
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
                     <ul class="demo-choose-skin">
-                        <li data-theme="red" class="active">
+                        <li data-theme="red">
                             <div class="red"></div>
                             <span>Red</span>
                         </li>
@@ -23,7 +23,7 @@
                             <div class="deep-purple"></div>
                             <span>Deep Purple</span>
                         </li>
-                        <li data-theme="indigo">
+                        <li data-theme="indigo"  class="active">
                             <div class="indigo"></div>
                             <span>Indigo</span>
                         </li>
@@ -135,6 +135,25 @@
                                     <label><input type="checkbox" checked><span class="lever"></span></label>
                                 </div>
                             </li>
+
+                            <li>
+                                   <div class="text-right">
+                                    <a class="btn bg-cyan2" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    </div>
+
+                            </li>
+
+
+
+                                    
                         </ul>
                     </div>
                 </div>

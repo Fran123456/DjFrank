@@ -12,6 +12,7 @@
 	"signUp":"SIGN UP",
 	"You already have a membership?":"You already have a membership?",
 	"sessionFailed": "Unable to start session",
-	"Please wait...":"Please wait..."
+	"Please wait...":"Please wait...",
+	"Logout":"Logout"
   
 }

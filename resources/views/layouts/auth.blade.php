@@ -28,7 +28,6 @@
      <link href="{{ asset('css/all-themes.min.css') }}" rel="stylesheet">
      <link href="{{ asset('css/materialize.css') }}" rel="stylesheet">
      <!--CUSTOM CSS-->
-     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
      <link href="{{ asset('css/default.css') }}" rel="stylesheet">
  
     <!-- Bootstrap Core Css -->

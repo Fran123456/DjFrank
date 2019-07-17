@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -22,7 +25,6 @@
      <link href="{{ asset('css/all-themes.min.css') }}" rel="stylesheet">
      <link href="{{ asset('css/materialize.css') }}" rel="stylesheet">
      <!--CUSTOM CSS-->
-     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
      <link href="{{ asset('css/default.css') }}" rel="stylesheet">
  
     <!-- Bootstrap Core Css -->
@@ -36,9 +38,20 @@
      <script src="{{ asset('js/admin.js') }}"></script>
     <script src="{{ asset('js/demo.js') }}"></script>
 
+    <style type="text/css">
+        .sidebar .user-info {
+            padding: 13px 15px 12px 15px;
+            white-space: nowrap;
+            position: relative;
+            border-bottom: 1px solid #e9e9e9;
+            background: url(../images/backlogin2.jpg) no-repeat no-repeat;
+            height: 135px;
+        }
+    </style>
+
 </head>
 
-<body class="theme-red">
+<body class="theme-indigo">
     <!-- Page Loader -->
     @include('partials.layout.loader')
     <!-- Page Loader -->
@@ -62,25 +75,7 @@
 
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-                <h2>DASHBOARD</h2>
-
-
-                                    <a class="" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                
-            </div>
-
-           
-
-           
+              @yield('content')
         </div>
     </section>
 

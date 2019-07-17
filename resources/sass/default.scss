@@ -43,3 +43,82 @@ hr {
     background-color: #3b5998 !important;
     color: #fff;
 }
+
+
+.navbar-brand {
+    float: left;
+    height: 50px;
+    padding-top: 6px;
+    padding-bottom: 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+.sidebar .user-info .info-container {
+    cursor: default;
+    display: block;
+    position: relative;
+    top: 15px;
+}
+
+.img-thumbnail {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    padding: 2px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.sidebar {
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    font-family: "Roboto",sans-serif;
+    background: #fdfdfd;
+    width: 250px;
+    overflow: hidden;
+    display: inline-block;
+    height: calc(100vh - 70px);
+    position: fixed;
+    top: 70px;
+    left: 0;
+    -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,.1);
+    -moz-box-shadow: 2px 2px 5px rgba(0,0,0,.1);
+    -ms-box-shadow: 2px 2px 5px rgba(0,0,0,.1);
+    box-shadow: 2px 2px 5px rgba(0,0,0,.1);
+    z-index: 11 !important;
+}
+
+[type="checkbox"] + label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+    height: 45px;
+    line-height: 25px;
+    font-size: 1.3rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+}
+
+.card .body .col-xs-8, .card .body .col-sm-8, .card .body .col-md-8, .card .body .col-lg-8 {
+    margin-bottom: 7px;
+}
+
+
+.btn:hover {
+    color: white;
+}
+
+.bg-cyan2 {
+    background-color: #40b7b2 !important;
+    color: #fff;
+}
