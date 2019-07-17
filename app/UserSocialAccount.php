@@ -20,7 +20,12 @@ class UserSocialAccount extends Model
      */
     protected $fillable = ['user_id','provider','provider_uid'];
 
-
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var boolean
+     */
+    public $timestamps = false;
 
     public function user()
     {

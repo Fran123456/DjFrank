@@ -11,7 +11,7 @@ use App\UserSocialAccount;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-
+use App\Role;
 
 
 class LoginController extends Controller
@@ -73,7 +73,8 @@ class LoginController extends Controller
                  $user = User::create([
                      "name" => $socialUser->name,
                      "email" => $email,
-                     "slug" => Str::slug($socialUser->name, '-')
+                     "slug" => Str::slug($socialUser->name, '-'),
+                     'role_id' => Role::STUDENT,
                    ]);
                   
                 UserSocialAccount::create([

@@ -18,7 +18,7 @@ class CreateUsersSocialAccountsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('provider');
             $table->string('provider_uid');
-            $table->timestamps();
+           // $table->timestamps();
 
             //relationship
             $table->foreign('user_id')->references('id')->on('users');
