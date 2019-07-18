@@ -13,6 +13,6 @@
   "You already have a membership?":"¿Ya tienes cuenta?",
   "sessionFailed": "No se ha podido iniciar sesion",
   "Please wait...": "Espere por favor",
-  "Logout":"Salir"
-
+  "Logout":"Salir",
+  "SETTINGS":"CONFIGURACIONES"
 }

@@ -2,7 +2,7 @@
  <aside id="rightsidebar" class="right-sidebar">
             <ul class="nav nav-tabs tab-nav-right" role="tablist">
                 <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
-                <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
+                <li role="presentation"><a href="#settings" data-toggle="tab">{{ __('SETTINGS') }}</a></li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
@@ -93,67 +93,38 @@
                     <div class="demo-settings">
                         <p>GENERAL SETTINGS</p>
                         <ul class="setting-list">
-                            <li>
-                                <span>Report Panel Usage</span>
-                                <div class="switch">
-                                    <label><input type="checkbox" checked><span class="lever"></span></label>
-                                </div>
-                            </li>
-                            <li>
-                                <span>Email Redirect</span>
-                                <div class="switch">
-                                    <label><input type="checkbox"><span class="lever"></span></label>
-                                </div>
-                            </li>
-                        </ul>
-                        <p>SYSTEM SETTINGS</p>
-                        <ul class="setting-list">
-                            <li>
-                                <span>Notifications</span>
-                                <div class="switch">
-                                    <label><input type="checkbox" checked><span class="lever"></span></label>
-                                </div>
-                            </li>
-                            <li>
-                                <span>Auto Updates</span>
-                                <div class="switch">
-                                    <label><input type="checkbox" checked><span class="lever"></span></label>
-                                </div>
-                            </li>
-                        </ul>
-                        <p>ACCOUNT SETTINGS</p>
-                        <ul class="setting-list">
-                            <li>
-                                <span>Offline</span>
-                                <div class="switch">
-                                    <label><input type="checkbox"><span class="lever"></span></label>
-                                </div>
-                            </li>
-                            <li>
-                                <span>Location Permission</span>
-                                <div class="switch">
-                                    <label><input type="checkbox" checked><span class="lever"></span></label>
-                                </div>
-                            </li>
+                            @auth
+                                <li>
+                                    <span>{{ __('Logout') }}</span>
+                                     <div class="switch" style="top: 5px">
+                                        <a class="btn bg-cyan2 btn-circle waves-effect waves-circle waves-float" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            <i class="material-icons">input</i>
+                                        </a>
 
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                     </div>
+                                </li>
+                            @endauth
+
+                            @guest
+                                <li>
+                                    <span>Login</span>
+                                     <div class="switch" style="top: 5px">
+                                        <a class="btn bg-cyan2 btn-circle waves-effect waves-circle waves-float" href="{{ route('login') }}">
+                                            <i class="material-icons">home</i>
+                                        </a>
+                                     </div>
+                                </li>
+                            @endguest
+                            
                             <li>
-                                   <div class="text-right">
-                                    <a class="btn bg-cyan2" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                    </div>
-
+                               
                             </li>
-
-
-
-                                    
+     
                         </ul>
                     </div>
                 </div>

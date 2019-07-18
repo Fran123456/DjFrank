@@ -47,7 +47,12 @@
             background: url(../images/backlogin2.jpg) no-repeat no-repeat;
             height: 135px;
         }
+
+        
     </style>
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"></script>
 
 </head>
 
@@ -66,7 +71,11 @@
     
     <section>
         <!-- Left Sidebar -->
-        @include('partials.layout.leftSidebar')
+        @auth
+           @include('partials.layout.leftSidebar')
+        @endauth
+        {{--@include('partials.layout.leftSidebar')--}}
+        
         <!-- Left Sidebar -->
         <!-- Right Sidebar -->
         @include('partials.layout.rightSidebar')
