@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Role;
 
 class User extends Authenticatable
 {
@@ -37,15 +38,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    public static function navigation(){
+        return auth()->check() ? auth()->user()->role->rol : "gest";
+
+      //  return  auth()->user()->role;
+
+    }
+
     /**
      * User belongs to Rol.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function rol()
+    public function role()
     {
         // belongsTo(RelatedModel, foreignKey = rol_id, keyOnRelatedModel = id)
-        return $this->belongsTo(Rol::class);
+        return $this->belongsTo(Role::class);
     }
 
     /**

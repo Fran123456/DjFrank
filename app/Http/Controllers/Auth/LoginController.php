@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Role;
+use Illuminate\Http\Request;
 
 
 class LoginController extends Controller
@@ -44,6 +45,12 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function logout(Request $request){
+      auth()->logout();
+      session()->flush();
+      return redirect('/home');
     }
 
     public function redirectToProvider($driver){

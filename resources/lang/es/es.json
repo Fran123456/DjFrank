@@ -1,0 +1,18 @@
+{
+  "titlelogin": "¡Inicia sesión en tu cuenta!",
+  "email": "Correo electronico",
+  "password":"Contraseña",
+  "rememberMe":"Recordar",
+  "login":"ACCEDE",
+  "registerNow":"Registrate!",
+  "forgotPassword":"¿Olvidaste contraseña?",
+  "titleRegister":"Registrate",
+  "name":"Nombre completo",
+  "confirmPassword":"Confirma contraseña",
+  "signUp":"REGISTRATE",
+  "You already have a membership?":"¿Ya tienes cuenta?",
+  "sessionFailed": "No se ha podido iniciar sesion",
+  "Please wait...": "Espere por favor",
+  "Logout":"Salir",
+  "SETTINGS":"CONFIGURACIONES"
+}

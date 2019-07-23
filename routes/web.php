@@ -25,3 +25,12 @@ Route::get('login/{driver}/callback','Auth\LoginController@handleProviderCallbac
 
 //languages
 Route::get('set_Language/{lang}','Controller@setLanguage')->name('set_Language');
+
+//IMAGES
+Route::get('/images/{path}/{attachment}', function($path, $attachment) {
+    $file = sprintf('storage/$s/$s', $path, $attachment);
+   if(File::exists($file)){
+   	return \Intervention\Image\Facades\Image::make('$file')->response();
+   }
+});
+

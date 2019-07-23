@@ -41,11 +41,13 @@
                             </li>
                         </ul>
                     </li>
+                    
                     @endauth
                     <!-- #END# Notifications -->
 
                     @guest
                     <li><a href="{{ route('login') }}"><i class="fas fa-2x fa-sign-in-alt"></i></a></li>
+
                     @endguest
 
 

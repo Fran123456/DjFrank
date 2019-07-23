@@ -8,7 +8,7 @@ use App\Goal;
 use App\Level;
 use App\Review;
 use App\Requirement;
-use App\Students;
+use App\Student;
 class Course extends Model
 {
     const PUBLISHED = 1;
@@ -20,6 +20,11 @@ class Course extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+    public function pathAttachment(){
+        return "storage/courses/".$this->picture;
+    }
+    
+
     public function category()
     {
     	// belongsTo(RelatedModel, foreignKey = _id, keyOnRelatedModel = id)
@@ -100,7 +105,7 @@ class Course extends Model
     public function students()
     {
     	//belongsToMany(RelatedModel, foreignKey = students_id, keyOnRelatedModel = id)
-    	return $this->belongsToMany(Students::class);
+    	return $this->belongsToMany(Student::class);
     }
 
     /**
@@ -113,4 +118,9 @@ class Course extends Model
         // belongsTo(RelatedModel, foreignKey = administrator_id, keyOnRelatedModel = id)
         return $this->belongsTo(Administrator::class);
     }
+
+    public function getRatingAttribute(){
+        return $this->reviews->avg('rating');
+    }
+    
 }

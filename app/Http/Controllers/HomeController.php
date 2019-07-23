@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Course;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $courses = Course::withCount(['students'])
+        ->with('category','reviews')
+        ->where('status', Course::PUBLISHED)
+        ->latest()
+        ->paginate(12);
+  
+        return view('home' ,compact('courses'));
     }
 }

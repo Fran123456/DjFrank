@@ -75,8 +75,8 @@
                             <a style="    color: #4172A9;" href="{{ route('password.request') }}">{{ __('forgotPassword') }}</a>
                             @endif 
                         </div>
-                          <a class="aLanguage" style="color:black" href="{{ route('set_Language',['es']) }}">Spanish</a>
-                           <a class="aLanguage" style="color:black" href="{{ route('set_Language',['en']) }}">English</a>
+                      <!--    <a class="aLanguage" style="color:black" href="{{-- route('set_Language',['es']) --}}">Spanish</a>
+                           <a class="aLanguage" style="color:black" href="{{-- route('set_Language',['en']) --}}">English</a>-->
                     </div>
                 </form>
             </div>

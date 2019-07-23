@@ -1,4 +1,7 @@
 
+//VARIABLES
+$defaultColor: #3f51b5; //color de la app
+$defaultColorStart: #D8CA22;
 
 //LOGIN
 .login-page .login-box a {
@@ -152,3 +155,81 @@ hr {
 text-decoration:none; 
 color: black;
 } 
+
+
+//course.blade.php
+section.guest {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    -moz-transition: .5s;
+    -o-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.info-box .iconCourse {
+    padding-top: 10px;
+    display: inline-block;
+    text-align: center;
+    background-color: rgba(0,0,0,.12);
+    width: 80px;
+}
+
+.info-box .content .textCourse {
+    font-size: 17px;
+    margin-top: 11px;
+    color: #555;
+}
+
+section.content {
+    margin-top: 100px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+    margin-left: 270px;
+    -moz-transition: .5s;
+    -o-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.thumbnail .captionCourse {
+    padding-top: 7px;
+    padding-right: 0px;
+    padding-bottom: 9px;
+    padding-left: 9px;
+    color: #333;
+}
+
+.fontCourseLabel{
+font-size: 17px;
+}
+
+.label-course {
+    background-color: $defaultColor;
+}
+.starts {
+    margin-top: -15px;
+}
+.startColor{
+    color: $defaultColorStart;
+}
+//course.blade.php
+
+
+//home.blade.php
+
+.displayJumbo{
+      font-family: 'Anton', sans-serif;
+      font-weight: 60;
+      color: white;
+}
+.paragraphJumbo{
+    color: white;
+    font-family: "Trebuchet MS", Helvetica, sans-serif  ;
+     
+
+}
+
+//home.blade.php
