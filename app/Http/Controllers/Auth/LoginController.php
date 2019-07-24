@@ -81,6 +81,7 @@ class LoginController extends Controller
                      "name" => $socialUser->name,
                      "email" => $email,
                      "slug" => Str::slug($socialUser->name, '-'),
+                     'picture' => "contacts2.png",
                      'role_id' => Role::STUDENT,
                    ]);
                   
