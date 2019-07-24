@@ -40,3 +40,4 @@ Route::get('/images/{path}/{attachment}', function($path, $attachment) {
  Route::get('/{course}', 'CourseController@show')->name('courses.detail')
 });*/
 Route::get('Course/{course}', 'CourseController@show')->name('courses.detail');
+Route::get('{course}/{episode}', 'CourseController@episode')->name('episode');

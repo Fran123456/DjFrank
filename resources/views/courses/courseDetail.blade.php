@@ -137,28 +137,101 @@
                                     <p>{{$course->description}}</p>
                   </div>
                   <div role="tabpanel" class="tab-pane fade " style="padding-left: 20px" id="profile_with_icon_title">
-                        <b>Profile Content</b>             
+                        
+            <!--LIST STUDENTS-->
+                     <div class="bs-example" data-example-id="media-alignment">
+                                @forelse($course->students as $student)
+                                <div class="media">
+                                    <div class="media-left media-bottom">
+                                        <a href="javascript:void(0);">
+                                            <img class="media-object" src="/storage/users/{{$student->user->picture}}" width="50" height="50">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">{{$student->user->name}}</h4>
+                                        <p>
+                                            {{$student->user->email}}
+                                        </p>
+                                       
+                                    </div>
+                                </div>
+                                @empty
+                                 No hay estudiantes inscritos en este curso
+                                @endforelse
+                            </div>
+                 <!--LIST STUDENTS-->
                   </div>
            </div>
 
   <!--DESCRIPTION-->
 
-  <!--SECTIONS END EPISODES-->           
-                @forelse($course->sections as $go)
-                   <li class="list-group-item active">{{$go->id}}</li>
-
-  
-		                @forelse($go->episodes as $a)
-		                   <li class="list-group-item">{{$a->id }} - {{$a->title}}</li>
-		                @empty
-		                   <li class="list-group-item">No hay metas para este curso</li>
-		                @endforelse
-  
-
-
-                @empty
-                   <li class="list-group-item">No hay metas para este curso</li>
-                @endforelse
+  <!--SECTIONS END EPISODES-->     
+  <br>      
+        <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                               SECCIONES DEL CURSO:
+                            </h2>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12">
+                                	@php
+                                       $co = 1;
+                                       $sec = 0;
+                                    @endphp
+                                	@forelse($course->sections as $key => $section)
+                                    <div class="panel-group " id="accordion{{$key}}" role="tablist" aria-multiselectable="true">
+                                        <div class="panel {{$colors[$sec]}}">
+                                            <div class="panel-heading" role="tab" id="headingOne{{$key}}">
+                                                <h4 class="panel-title" style="color: white">
+                                                    <a style="color: white" role="button" data-toggle="collapse" href="#collapseOne{{$key}}" aria-expanded="false" aria-controls="collapseOne{{$key}}" class="collapsed">
+                                                       {{$key+1}} - {{$section->name}}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseOne{{$key}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne{{$key}}" aria-expanded="false" style="height: 0px;">
+                                               <div class="panel-body">
+                                                 		<div class="list-group">
+                                                 			
+		                                                   @forelse($section->episodes as $n => $episode)
+							                                <a href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$episode->slug] ) }}" class="list-group-item ">
+							                                   {{$co+$n}} - {{$episode->title}}
+							                                </a>
+							                                @empty
+							                                 No hay capítulos para esta sección
+							                                @endforelse
+							                            </div>
+							                            @php
+							                            	$co = $co+$n+1;
+							                            @endphp
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @php
+                                    if($key == 0){
+                                        $sec++;
+                                    }else{
+                                       if($key%6 ==0){
+                                			$sec =0;
+                                		}else{
+                                			$sec++;
+                                		}
+                                    }
+                                		
+                                	@endphp
+                                    @empty
+					                   <li class="list-group-item">No hay secciones para este curso</li>
+					                @endforelse
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
   <!--SECTIONS END EPISODES-->
 
 
