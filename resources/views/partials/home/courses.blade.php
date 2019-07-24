@@ -19,7 +19,7 @@
                 <h3>{{$course->name}}</h3>
                 <p>{{Str::limit($course->description, 70)}}</p>
                 <p>
-                    <a href="javascript:void(0);" style="color: white" class="btn bg-indigo" role="button"><i class="fas fa-chevron-circle-right"></i></a>
+                    <a href="{{ route('courses.detail', $course->slug) }}" style="color: white" class="btn bg-indigo" role="button"><i class="fas fa-chevron-circle-right"></i></a>
                 </p>
 
 
@@ -27,8 +27,7 @@
         </div>
     </div>
 @empty
-    <div class="col-md-12 text-center">
-                
+    <div class="col-md-12 text-center">    
            <div class="info-box">
                         <div class="iconCourse bg-indigo">
                             <i class="far fa-frown fa-4x"></i>
@@ -36,8 +35,7 @@
                         <div class="content">
                             <div class="textCourse">No hay cursos disponibles.</div>
                         </div>
-           </div>
-               
+           </div>   
     </div>
 @endforelse
     <div class="col-md-12 text-center">

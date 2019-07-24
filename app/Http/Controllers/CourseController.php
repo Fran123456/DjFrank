@@ -14,10 +14,13 @@ class CourseController extends Controller
         'requirements',
         'reviews.user',
         'administrator',
+        'sections' => function($q){
+        	$q->orderBy('orderInt');
+        }
       ])->withCount(['students','reviews'])->get();
 
       $related = $course->relatedCourses();
-      dd($course);
+     // dd($course);
       return view('courses.courseDetail', compact('course'));
     }
 }

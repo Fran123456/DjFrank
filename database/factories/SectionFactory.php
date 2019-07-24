@@ -9,6 +9,7 @@ $factory->define(Section::class, function (Faker $faker) {
 	$name = $faker->sentence;
     return [
     	    'name'=> $name,
+    	    'orderInt' => null,
             'description'=> $faker->paragraph,
             'slug' => str::Slug($name, '-'),
             'course_id'=>null

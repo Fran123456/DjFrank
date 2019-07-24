@@ -212,3 +212,15 @@ img.imgDetail {
   margin-top: 20px;
 }
 
+.list-group .active {
+  background-color: #5f71d4;
+  border-color: #5f71d4;
+}
+
+.list-group .active:hover,
+.list-group .active:focus,
+.list-group .active:active {
+  background-color: #5f71d4;
+  border-color: #5f71d4;
+}
+
