@@ -9,11 +9,14 @@ use App\Level;
 use App\Review;
 use App\Requirement;
 use App\Student;
+use App\Administrator;
 class Course extends Model
 {
     const PUBLISHED = 1;
     const PENDING = 2;
     const REJECTED = 3;
+
+    protected $withCount = ['reviews', 'students'];
 
     /**
      * Course belongs to .
@@ -21,7 +24,11 @@ class Course extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function pathAttachment(){
-        return "storage/courses/".$this->picture;
+        return "/storage/courses/".$this->picture;
+    }
+
+    public function getRouteKeyName(){
+        return 'slug';
     }
     
 
@@ -121,6 +128,14 @@ class Course extends Model
 
     public function getRatingAttribute(){
         return $this->reviews->avg('rating');
+    }
+
+    public function relatedCourses(){
+        return Course::with('reviews')->whereCategoryId($this->category->id)
+        ->where('id','!=', $this->id)
+        ->latest()
+        ->limit(6)
+        ->get();
     }
     
 }
