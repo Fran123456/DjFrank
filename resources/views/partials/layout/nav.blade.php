@@ -4,7 +4,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('images/icon.png') }}" height="40" width="40"></a>
+                <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('images/icon.png') }}" height="40" width="40"></a> <div style="padding-top: 15px" class="navbar-brand">CURSOS PARA TODOS</div>
 
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
