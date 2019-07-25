@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Course;
 use Illuminate\Http\Request;
+use App\Episode;
 
 class CourseController extends Controller
 {
@@ -28,7 +29,8 @@ class CourseController extends Controller
       return view('courses.courseDetail', compact('course','colors'));
     }
 
-    public function episode(){
-    	return view('courses.episode');
+    public function episode(Course $course, Episode $episode){
+      dd($episode);
+    	//return view('courses.episode');
     }
 }

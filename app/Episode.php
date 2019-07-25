@@ -12,6 +12,11 @@ class Episode extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+
+    public function getRouteKeyName(){
+        return 'slug';
+    }
+    
     public function section()
     {
     	// belongsTo(RelatedModel, foreignKey = section_id, keyOnRelatedModel = id)

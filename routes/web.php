@@ -39,5 +39,13 @@ Route::get('/images/{path}/{attachment}', function($path, $attachment) {
 /*Route::group(['prefix' => 'Courses'], function(){
  Route::get('/{course}', 'CourseController@show')->name('courses.detail')
 });*/
-Route::get('Course/{course}', 'CourseController@show')->name('courses.detail');
-Route::get('{course}/{episode}', 'CourseController@episode')->name('episode');
+Route::get('course/{course}', 'CourseController@show')->name('courses.detail');
+Route::get('course/{course}/{episode}', 'CourseController@episode')->name('episode');
+
+
+
+Route::get('suscription/plans', 'SubscriptionController@plans')->name('plans');
+//Route::get('suscription/admin', 'SubscriptionController@admin')->name('subscriptions.admin');
+Route::post('suscription/process_subscription', 'SubscriptionController@processSubscription')->name('subscriptions.process_subscription');
+//Route::post('suscription/resume', 'SubscriptionController@resume')->name('subscriptions.resume');
+//Route::post('suscription/cancel', 'SubscriptionController@cancel')->name('subscriptions.cancel');

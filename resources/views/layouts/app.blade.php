@@ -35,8 +35,14 @@
     <script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('js/jquery.slimscroll.js') }}"></script>
     <script src="{{ asset('js/waves.min.js') }}"></script>
+     <script src="{{ asset('js/bootstrap-notify.min.js') }}"></script>
+      <script src="{{ asset('js/notifications.js') }}"></script>
+     
      <script src="{{ asset('js/admin.js') }}"></script>
     <script src="{{ asset('js/demo.js') }}"></script>
+
+
+
 
     <style type="text/css">
         .sidebar .user-info {
@@ -56,7 +62,9 @@
 
 </head>
 
-<body class="theme-indigo">
+<body class="theme-indigo" >
+
+    
     <!-- Page Loader -->
     @include('partials.layout.loader')
     <!-- Page Loader -->
@@ -82,7 +90,7 @@
         <!-- Right Sidebar -->
     </section>
 
-    <section class="content">
+    <section class="content" >
         @auth
         <div class="container-fluid">
               @yield('content')

@@ -39,6 +39,14 @@
 </style>
 @endguest
 
+ 
+ @if(session('message'))
+            <script type="text/javascript">
+                showNotification("{{Session('message')[1]}}", "{{Session('message')[0]}}", "top", "center", "animated bounceIn", "animated bounceOut");
+            </script>
+  @endif
+
+
 <div class="jumbotron ">
   <div class="">
     <h1 class="display-4 displayJumbo" style="color: #EDEAEA">Todos los cursos</h1>

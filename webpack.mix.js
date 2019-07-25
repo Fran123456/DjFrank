@@ -61,6 +61,7 @@ mix.scripts([
 ], 'public/js/plugins.js');
 
 
+mix.js('resources/js/app.js', 'public/js');
 
 mix.sass('resources/sass/default.scss', 'public/css');
 //remember, boostrap core is not runing on laravelmix 
