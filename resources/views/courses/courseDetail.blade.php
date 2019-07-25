@@ -195,11 +195,38 @@
                                             <div id="collapseOne{{$key}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne{{$key}}" aria-expanded="false" style="height: 0px;">
                                                <div class="panel-body">
                                                  		<div class="list-group">
-                                                 			
 		                                                   @forelse($section->episodes as $n => $episode)
-							                                <a href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$episode->slug] ) }}" class="list-group-item ">
-							                                   {{$co+$n}} - {{$episode->title}}
-							                                </a>
+							                                  <!--VALIDACION-->
+	                                                         @auth
+													           @can('opt_for_course', $course)
+													           		@can('subscribe', \App\Course::class)
+																		<li  class="list-group-item ">
+								                                         {{$co+$n}} - {{$episode->title}}
+								                                        </li>
+													           		@else
+													                   <!-- No se puede subscribir porque ya es usuario del grupo-->
+													                   @can('inscribe', $course)
+													                     {{$co+$n}} - {{$episode->title}}
+													                   @else
+																		 <a href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$episode->slug] ) }}" class="list-group-item ">
+								                                          {{$co+$n}} - {{$episode->title}}
+								                                           </a>
+													                   @endcan
+													           		@endcan
+													           @else
+													           		 <a href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$episode->slug] ) }}" class="list-group-item ">
+								                                     {{$co+$n}} - {{$episode->title}}
+								                                </a>
+													           @endcan
+													         @else
+													           	<li  class="list-group-item ">
+								                                      {{$co+$n}} - {{$episode->title}}
+								                                 </li>
+													         @endauth  
+															  <!--VALIDACION-->
+
+
+
 							                                @empty
 							                                 No hay capítulos para esta sección
 							                                @endforelse
