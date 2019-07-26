@@ -32,7 +32,7 @@
 										    @else<!--4-->
 											   <!-- No se puede subscribir porque ya es usuario del grupo-->
 												@can('inscribe', $course)<!--5-->
-													{{$co+$n}} - {{$episode->title}}
+													<li  class="list-group-item">{{$co+$n}} - {{$episode->title}}</li>
 												@else<!--5-->
 													<a href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$episode->slug] ) }}" class="list-group-item ">{{$co+$n}} - {{$episode->title}}</a>
 												@endcan<!--5-->

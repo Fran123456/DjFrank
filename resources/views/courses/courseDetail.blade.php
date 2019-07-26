@@ -62,9 +62,9 @@
            		@else
                    <!-- No se puede subscribir porque ya es usuario del grupo-->
                    @can('inscribe', $course)
-                     <a href="" class="btn btn-success">Inscribirme</a>
+                     <a style="color:white; margin-top: 5px" href="" class="btn btn-success">Inscribirme</a>
                    @else
-					 <a href="" class="btn btn-success">Inscrito</a>
+				          	 <a href="" class="btn btn-success">Inscrito</a>
                    @endcan
            		@endcan
            @else

@@ -14,7 +14,7 @@
 	    margin-right: -100px;
 	    color: inherit;
 	    /*background-color: #e0d5d5;*/
-	    background-image: url('../images/backHome.png');
+	    background-image: url("../images/backPlans.jpg");
 	}
 </style>
 @endauth
@@ -30,11 +30,17 @@
 	    margin-right: -100px;
 	    color: inherit;
 	    /*background-color: #e0d5d5;*/
-	    background-image: url('../images/backHome.png');
+	    background-image: url('../images/backPlans.jpg');
 	}
 </style>
 @endguest
  
+
+          @if(session('message'))
+            <script type="text/javascript">
+                showNotification("{{Session('message')[1]}}", "{{Session('message')[0]}}", "top", "center", "animated bounceIn", "animated bounceOut");
+            </script>
+         @endif
 
 
 
@@ -45,7 +51,7 @@
   </div>
 </div>
 
-<div class="row" >
+<div class="row" id="app" >
 	       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <div class="card">
                         <div class="header bg-blue-grey text-center">
@@ -59,19 +65,76 @@
                            	<hr>
                            	<h5>Acceso a todos los materiales</h5>
                            	<hr>
-                           	<div id="app">
+                           	<div >
                            	@include('partials.subscriptions.form', [
                             "product" => [
                                 "name" => __("Suscripción"),
                                 "description" => __("Mensual"),
-                                "type" => "monthly",
+                                "type" => "montly",
+                                "plan" => "montly",
                                 "amount" => 999,99
                             ]
                           ])
                           </div>
                         </div>
+                    </div>
+                </div>
 
-                        
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="header bg-green text-center">
+                            <h2>
+                                TRIMESTRAL <small>$17.99 / 3 mes</small>
+                            </h2>
+                        </div>
+                        <div class="body text-center" >
+
+                           	<h5>Acceso a todos los cursos</h5>
+                           	<hr>
+                           	<h5>Acceso a todos los materiales</h5>
+                           	<hr>
+                           	<div >
+                           	@include('partials.subscriptions.form', [
+                            "product" => [
+                                "name" => __("Suscripción"),
+                                "description" => __("Trimestral"),
+                                "type" => "quarterly",
+                                "plan" => "quarterly",
+                                "amount" => 1799,99
+                            ]
+                          ])
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <div class="header bg-red text-center">
+                            <h2>
+                                ANUAL <small>$70.00 / 12 meses</small>
+                            </h2>
+                        </div>
+                        <div class="body text-center" >
+
+                           	<h5>Acceso a todos los cursos</h5>
+                           	<hr>
+                           	<h5>Acceso a todos los materiales</h5>
+                           	<hr>
+                           	<div >
+                           	@include('partials.subscriptions.form', [
+                            "product" => [
+                                "name" => __("Suscripción"),
+                                "description" => __("Anual"),
+                                "type" => "yearly",
+                                "plan" => "yearly",
+                                "amount" => 7000,00
+                            ]
+                          ])
+                          </div>
+                        </div>
                     </div>
                 </div>
 </div>

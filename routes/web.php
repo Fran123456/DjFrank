@@ -45,7 +45,7 @@ Route::get('course/{course}/{episode}', 'CourseController@episode')->name('episo
 
 
 Route::get('suscription/plans', 'SubscriptionController@plans')->name('plans');
-//Route::get('suscription/admin', 'SubscriptionController@admin')->name('subscriptions.admin');
+Route::get('suscription/admin', 'SubscriptionController@admin')->name('subscriptions.admin');
 Route::post('suscription/process_subscription', 'SubscriptionController@processSubscription')->name('subscriptions.process_subscription');
-//Route::post('suscription/resume', 'SubscriptionController@resume')->name('subscriptions.resume');
-//Route::post('suscription/cancel', 'SubscriptionController@cancel')->name('subscriptions.cancel');
+Route::post('suscription/resume', 'SubscriptionController@resume')->name('subscriptions.resume');
+Route::post('suscription/cancel', 'SubscriptionController@cancel')->name('subscriptions.cancel');

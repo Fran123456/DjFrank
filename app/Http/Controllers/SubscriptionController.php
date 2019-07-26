@@ -16,6 +16,8 @@ class SubscriptionController extends Controller
 			return $next($request);
 		})
 		->only(['plans', 'processSubscription']);
+
+		$this->middleware('auth')->only(['resume','admin','cancel']);
 	}
 
 
@@ -23,23 +25,22 @@ class SubscriptionController extends Controller
 		return view('subscriptions.plans');
     }
 
-    public function processSubscription () {
-	 /*   $token = request('stripeToken');
+    public function processSubscription (Request $request) {
+	    $token = request('stripeToken');
 	    try {
 			if ( \request()->has('coupon')) {
-				\request()->user()->newSubscription('main', \request('type'))
-					->withCoupon(\request('coupon'))->create($token);
+				 $request->user()->newSubscription('main', $request->plan)
+					->withCoupon($request->coupon)->create($token);
 			} else {
-				\request()->user()->newSubscription('main', \request('type'))
-				          ->create($token);
+				 $request->user()->newSubscription('main', $request->plan)->create($token);
 			}
 		    return redirect(route('subscriptions.admin'))
-			    ->with('message', ['success', __("La suscripción se ha llevado a cabo correctamente")]);
+			    ->with('success', [__("La suscripción se ha llevado a cabo correctamente"),'bg-teal']);
 	    } catch (\Exception $exception) {
 	    	$error = $exception->getMessage();
-	    	return back()->with('message', ['danger', $error]);
-	    }*/
-    }
+	    	return back()->with('message', [$error,'bg-red']);
+	    }
+    }     
 
 
     public function admin () {
@@ -51,14 +52,14 @@ class SubscriptionController extends Controller
 		$subscription = \request()->user()->subscription(\request('plan'));
 		if ($subscription->cancelled() && $subscription->onGracePeriod()) {
 			\request()->user()->subscription(\request('plan'))->resume();
-			return back()->with('message', ['success', __("Has reanudado tu suscripción correctamente")]);
+			return back()->with('action', [ __("Has reanudado tu suscripción correctamente") ,'bg-teal']);
 		}
 		return back();
     }
 
     public function cancel () {
 		auth()->user()->subscription(\request('plan'))->cancel();
-	    return back()->with('message', ['success', __("La suscripción se ha cancelado correctamente")]);
+	    return back()->with('action', [__("La suscripción se ha cancelado correctamente"),'alert-danger']);
     }
 
 
