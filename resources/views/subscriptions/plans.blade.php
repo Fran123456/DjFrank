@@ -66,15 +66,20 @@
                            	<h5>Acceso a todos los materiales</h5>
                            	<hr>
                            	<div >
-                           	@include('partials.subscriptions.form', [
-                            "product" => [
-                                "name" => __("Suscripción"),
-                                "description" => __("Mensual"),
-                                "type" => "montly",
-                                "plan" => "montly",
-                                "amount" => 999,99
-                            ]
-                          ])
+                              @auth
+                              	@if(!Auth::user()->subscribed('main'))
+						          	@include('partials.subscriptions.form', [
+			                            "product" => [
+			                                "name" => __("Suscripción"),
+			                                "description" => __("Mensual"),
+			                                "type" => "montly",
+			                                "plan" => "montly",
+			                                "amount" => 999,99
+			                            ]
+			                          ])
+			                     @endif
+						      @endauth
+                           
                           </div>
                         </div>
                     </div>
@@ -95,6 +100,8 @@
                            	<h5>Acceso a todos los materiales</h5>
                            	<hr>
                            	<div >
+                           	@auth
+                           	@if(!Auth::user()->subscribed('main'))
                            	@include('partials.subscriptions.form', [
                             "product" => [
                                 "name" => __("Suscripción"),
@@ -104,6 +111,8 @@
                                 "amount" => 1799,99
                             ]
                           ])
+                          @endif
+                          @endauth
                           </div>
                         </div>
                     </div>
@@ -124,18 +133,37 @@
                            	<h5>Acceso a todos los materiales</h5>
                            	<hr>
                            	<div >
-                           	@include('partials.subscriptions.form', [
-                            "product" => [
-                                "name" => __("Suscripción"),
-                                "description" => __("Anual"),
-                                "type" => "yearly",
-                                "plan" => "yearly",
-                                "amount" => 7000,00
-                            ]
-                          ])
+                            @auth
+	                            @if(!Auth::user()->subscribed('main'))
+									@include('partials.subscriptions.form', [
+		                            "product" => [
+		                                "name" => __("Suscripción"),
+		                                "description" => __("Anual"),
+		                                "type" => "yearly",
+		                                "plan" => "yearly",
+		                                "amount" => 7000,00
+		                            ]
+		                          ])
+	                           @endif
+                           @endauth
                           </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-12 text-center">
+                @guest
+                	<h4>Accede para poder adquirir un plan!!</h4>
+                	<a style="color:white" class="btn btn-danger" href="{{ route('login') }}"> Accede </a>
+                
+                @endguest
+
+                @auth
+                   @if(Auth::user()->subscribed('main'))
+                      <h4>usted ya posee un plan con nosotros!!</h4>
+                      <h5>Ver suscripciones:</h5>
+                      <a style="color:white" class="btn btn-danger" href="{{ route('subscriptions.admin') }}"> Ir </a>
+                   @endif
+                @endauth
                 </div>
 </div>
 <script src="{{ asset('js/app.js') }}"></script>

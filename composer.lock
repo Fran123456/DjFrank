@@ -4,8 +4,63 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9a29aef9d3ddbd859d71c2c80e37bb2f",
+    "content-hash": "9fb1c35fcf4d0d75bddd1bfb8898a07b",
     "packages": [
+        {
+            "name": "appstract/laravel-blade-directives",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/appstract/laravel-blade-directives.git",
+                "reference": "552963de8f2f3c56036962f211476647aa2920bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/appstract/laravel-blade-directives/zipball/552963de8f2f3c56036962f211476647aa2920bc",
+                "reference": "552963de8f2f3c56036962f211476647aa2920bc",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.5",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.5",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Appstract\\BladeDirectives\\BladeDirectivesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Appstract\\BladeDirectives\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gijs Jorissen",
+                    "role": "Developer",
+                    "email": "hello@appstract.team",
+                    "homepage": "https://appstract.team"
+                }
+            ],
+            "description": "Handy Blade directives",
+            "homepage": "https://github.com/appstract/laravel-blade-directives",
+            "keywords": [
+                "appstract",
+                "laravel-blade-directives"
+            ],
+            "time": "2019-06-24T12:14:57+00:00"
+        },
         {
             "name": "caouecs/laravel-lang",
             "version": "4.0.0",

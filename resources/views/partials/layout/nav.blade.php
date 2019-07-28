@@ -50,6 +50,7 @@
 
                     @endguest
 
+                    <li><a href="{{ route('plans') }}"><i class="fas fa-shopping-cart fa-2x "></i></a></li>
 
                      <li class="dropdown">
                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">

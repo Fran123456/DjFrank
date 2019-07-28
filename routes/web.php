@@ -49,3 +49,9 @@ Route::get('suscription/admin', 'SubscriptionController@admin')->name('subscript
 Route::post('suscription/process_subscription', 'SubscriptionController@processSubscription')->name('subscriptions.process_subscription');
 Route::post('suscription/resume', 'SubscriptionController@resume')->name('subscriptions.resume');
 Route::post('suscription/cancel', 'SubscriptionController@cancel')->name('subscriptions.cancel');
+
+
+Route::group(['prefix' => "invoices"], function() {
+  Route::get('/admin', 'InvoiceController@admin')->name('invoices.admin');
+  Route::get('/{invoice}/download', 'InvoiceController@download')->name('invoices.download');
+});

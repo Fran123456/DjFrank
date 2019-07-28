@@ -27,22 +27,24 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">LABELS</li>
-                    <li class="active">
-                        <a href="index.html">
+
+
+                    <li @routeis('home') class="active" @endrouteis  >
+                        <a href="{{ route('home') }}">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="pages/typography.html">
-                            <i class="material-icons">text_fields</i>
-                            <span>Typography</span>
+                    <li @routeis('subscriptions.admin') class="active" @endrouteis >
+                        <a href="{{ route('subscriptions.admin') }}">
+                            <i class="material-icons">credit_card</i>
+                            <span>Mis suscripciones</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="pages/helper-classes.html">
+                    <li @routeis('invoices.admin') class="active" @endrouteis >
+                        <a href="{{ route('invoices.admin') }}">
                             <i class="material-icons">layers</i>
-                            <span>Helper Classes</span>
+                            <span>Facturas</span>
                         </a>
                     </li>
                     <li>

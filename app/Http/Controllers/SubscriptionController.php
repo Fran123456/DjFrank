@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -8,7 +9,11 @@ class SubscriptionController extends Controller
 {
 
    public function __construct() {
-		$this->middleware(function($request, $next) {
+
+   	if(Auth::guest()){
+     return  redirect('home');
+   	}else{
+   		$this->middleware(function($request, $next) {
 			if (auth()->user()->subscribed('main') ) {
 				return redirect('/home')
 					->with('message',  [__("Actualmente ya estás suscrito a otro plan"),'bg-teal']);
@@ -17,6 +22,7 @@ class SubscriptionController extends Controller
 		})
 		->only(['plans', 'processSubscription']);
 
+   	}
 		$this->middleware('auth')->only(['resume','admin','cancel']);
 	}
 
