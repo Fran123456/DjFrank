@@ -27,7 +27,7 @@ class CreateCoursesTable extends Migration
             $table->softDeletes();
 
             //relationships
-             $table->foreign('admin_id')->references('id')->on('administrators');
+             $table->foreign('administrator_id')->references('id')->on('administrators');
              $table->foreign('category_id')->references('id')->on('categories');
              $table->foreign('level_id')->references('id')->on('levels');
 

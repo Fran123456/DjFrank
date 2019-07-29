@@ -14,7 +14,7 @@ $factory->define(Course::class, function (Faker $faker) {
 	$name =$faker->sentence;
 	$status = Course::PUBLISHED;
     return [
-      'admin_id' => Administrator::all()->random()->id,
+      'administrator_id' => Administrator::all()->random()->id,
       'category_id' => Category::all()->random()->id,
       'level_id' => Level::all()->random()->id,
        'name' => $name,

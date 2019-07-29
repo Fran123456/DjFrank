@@ -24,16 +24,17 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         //Deleting images from storage
-        Storage::deleteDirectory('public/courses');
-        Storage::deleteDirectory('public/users');
-        Storage::deleteDirectory('public/episodes');
+  
+     //   Storage::deleteDirectory('public/users');
+     //   Storage::deleteDirectory('public/users');
+      //  Storage::deleteDirectory('public/episodes');
         
         
         //Creating images from storage
-        Storage::makeDirectory('public/courses');
-        Storage::makeDirectory('public/users');
-        Storage::makeDirectory('public/episodes');
-        
+       // Storage::makeDirectory('public/courses');
+       // Storage::makeDirectory('public/users');
+       // Storage::makeDirectory('public/episodes');
+       
         //Factory from Role
         factory(Role::class, 1)->create([
           'rol' => 'admin',
@@ -85,9 +86,10 @@ class DatabaseSeeder extends Seeder
        });
 
        //Factory from course also make a goals and requirent for a course
-       factory(Course::class, 1)->create()
+       factory(Course::class, 2)->create()
       ->each(function(Course $c){
-        define("FOO",     $c->id);
+     //   define("FOO",     $c->id);
+        $GLOBALS['variable'] = $c->id;
       
         $c->goals()->saveMany(factory(Goal::class, 2)->create(
           ['course_id' => $c->id]
@@ -96,11 +98,11 @@ class DatabaseSeeder extends Seeder
           ['course_id' => $c->id]
         ));
         //Factory from section, also make episodes from specific section
-        $c->sections()->saveMany(factory(Section::class, 5)->create(['course_id' => $c->id])
+        $c->sections()->saveMany(factory(Section::class, rand(2,6))->create(['course_id' => $c->id])
           ->each(function(Section $sec){
             $sec->episodes()->saveMany(factory(Episode::class, rand(4,10))->create(
               [
-               'course_id' => FOO ,
+               'course_id' => $GLOBALS['variable'],
                'section_id' => $sec->id
               ]
             ));
