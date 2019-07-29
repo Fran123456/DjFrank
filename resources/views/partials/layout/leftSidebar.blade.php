@@ -4,7 +4,7 @@
             <div class="user-info">
                 <div class="image">
                     <img class="img-thumbnail" src="/storage/users/{{Auth::user()->picture}}" width="58" height="58" alt="User" />
-                </div> 
+                </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</div>
                     <div class="email">{{Auth::user()->email}}</div>
@@ -47,6 +47,12 @@
                             <span>Facturas</span>
                         </a>
                     </li>
+                    <li @routeis('courses.subscribed') class="active" @endrouteis >
+                        <a href="{{ route('courses.subscribed') }}">
+                            <i class="material-icons">save</i>
+                            <span>Mis cursos</span>
+                        </a>
+                    </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">trending_down</i>
@@ -63,7 +69,7 @@
                                     <span>Menu Item - 2</span>
                                 </a>
                             </li>
-                           
+
                         </ul>
                     </li>
                     <li>

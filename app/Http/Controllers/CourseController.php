@@ -5,6 +5,9 @@ use App\Course;
 use Illuminate\Http\Request;
 use App\Episode;
 use App\Mail\NewStudentInCourse;
+use App\Student;
+use Illuminate\Support\Facades\DB;
+
 class CourseController extends Controller
 {
     public function show(Course $course){
@@ -26,7 +29,17 @@ class CourseController extends Controller
       $colors = array('panel-success','panel-warning','panel-danger','panel-col-pink','panel-col-cyan','panel-col-teal');
       //van de 0 a 5
 
-      return view('courses.courseDetail', compact('course','colors'));
+    //  $users = Course::where('id' , $course->id)->first()->with('students.user')->paginate();
+
+    $users = DB::table('course_student')
+                ->join('students', 'students.id', '=', 'course_student.student_id')
+                ->join('users', 'users.id', '=', 'students.user_id')
+                ->select('users.*')
+                ->where('course_student.course_id', $course->id)
+                ->paginate(20);
+
+
+    return view('courses.courseDetail', compact('course','colors','users'));
     }
 
     public function episode(Course $course, Episode $episode){
@@ -40,7 +53,7 @@ class CourseController extends Controller
    		\Mail::to($course->administrator->user)->send(new NewStudentInCourse($course, auth()->user()->name));
   		return back()->with('message', [__("Te has inscrito correctamente al curso"),'bg-teal']);
   	}
-    
+
 
     public function subscribed () {
   		$courses = Course::whereHas('students', function($query) {
