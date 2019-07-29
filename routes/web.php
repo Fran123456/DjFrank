@@ -35,15 +35,6 @@ Route::get('/images/{path}/{attachment}', function($path, $attachment) {
 });
 
 
-//COURSES
-/*Route::group(['prefix' => 'Courses'], function(){
- Route::get('/{course}', 'CourseController@show')->name('courses.detail')
-});*/
-Route::get('course/{course}', 'CourseController@show')->name('courses.detail');
-Route::get('course/{course}/{episode}', 'CourseController@episode')->name('episode');
-
-
-
 Route::get('suscription/plans', 'SubscriptionController@plans')->name('plans');
 Route::get('suscription/admin', 'SubscriptionController@admin')->name('subscriptions.admin');
 Route::post('suscription/process_subscription', 'SubscriptionController@processSubscription')->name('subscriptions.process_subscription');
@@ -55,3 +46,13 @@ Route::group(['prefix' => "invoices"], function() {
   Route::get('/admin', 'InvoiceController@admin')->name('invoices.admin');
   Route::get('/{invoice}/download', 'InvoiceController@download')->name('invoices.download');
 });
+
+//COURSES
+/*Route::group(['prefix' => 'Courses'], function(){
+ Route::get('/{course}', 'CourseController@show')->name('courses.detail')
+});*/
+Route::get('course/{course}', 'CourseController@show')->name('courses.detail');
+Route::get('course/{course}/{episode}', 'CourseController@episode')->name('episode');
+Route::get('/{course}/inscribe', 'CourseController@inscribe')->name('courses.inscribe');
+Route::get('/{course}', 'CourseController@show')->name('courses.detail');
+Route::get('/subscribed', 'CourseController@subscribed')->name('courses.subscribed');

@@ -34,6 +34,14 @@
 </style>
 @endguest
 
+
+@if(session('message'))
+					 <script type="text/javascript">
+							 showNotification("{{Session('message')[1]}}", "{{Session('message')[0]}}", "top", "center", "animated bounceIn", "animated bounceOut");
+					 </script>
+ @endif
+
+
 <div class="jumbotron ">
   <div class="row">
   	<div class="col-md-6 col-sm-4 col-4 text-right">
@@ -46,7 +54,7 @@
         <h4 class="display-4 displayJumbo" style="color: #EDEAEA">Fecha publicación: {{$course->created_at->format('d/m/Y')}}</h4>
         <h4 class="display-4 displayJumbo" style="color: #EDEAEA">Estudiantes inscritos: {{$course->students_count}}</h4>
         <h4 class="display-4 displayJumbo" style="color: #EDEAEA">Valoraciones: {{$course->reviews_count}}</h4>
-              <br>  
+              <br>
                 <div class="text-left starts">
                     <i class="fas fa-star{{$course->rating >= 1 ? ' startColor' : ''}}"></i>
                     <i class="fas fa-star{{$course->rating >= 2 ? ' startColor' : ''}}"></i>
@@ -58,13 +66,13 @@
          @auth
            @can('opt_for_course', $course)
            		@can('subscribe', \App\Course::class)
-					<a style="color:white; margin-top: 5px" href="{{ route('plans') }}" class="btn bg-indigo">Subscribirme</a>
+				    	<a style="color:white; margin-top: 5px" href="{{ route('plans') }}" class="btn bg-indigo">Subscribirme</a>
            		@else
                    <!-- No se puede subscribir porque ya es usuario del grupo-->
                    @can('inscribe', $course)
-                     <a style="color:white; margin-top: 5px" href="" class="btn btn-success">Inscribirme</a>
+                     <a  style="color:white; margin-top: 5px" href="{{route('courses.inscribe', ['slug' => $course->slug])}}" class="btn btn-success">Inscribirme</a>
                    @else
-				          	 <a href="" class="btn btn-success">Inscrito</a>
+				          	 <p style="color: white">Inscrito</p>
                    @endcan
            		@endcan
            @else
@@ -90,9 +98,8 @@
   @include('partials.courses.descriptionAndUsers')
  <!--DESCRIPTIONS AND USERS-->
 
-  
+
 <!--EPISODE-->
   @include('partials.courses.episode')
  <!--EPISODE-->
 @endsection
-  

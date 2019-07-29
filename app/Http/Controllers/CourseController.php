@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use Illuminate\Http\Request;
 use App\Episode;
-
+use App\Mail\NewStudentInCourse;
 class CourseController extends Controller
 {
     public function show(Course $course){
@@ -33,4 +33,20 @@ class CourseController extends Controller
       dd($episode);
     	//return view('courses.episode');
     }
+
+    public function inscribe (Course $course) {
+  		$course->students()->attach(auth()->user()->student->id);
+      //return  new NewStudentInCourse($course, "admin");
+   		\Mail::to($course->administrator->user)->send(new NewStudentInCourse($course, auth()->user()->name));
+  		return back()->with('message', [__("Te has inscrito correctamente al curso"),'bg-teal']);
+  	}
+    
+
+    public function subscribed () {
+  		$courses = Course::whereHas('students', function($query) {
+  			$query->where('user_id', auth()->id());
+  		})->get();
+  		return view('courses.subscribed', compact('courses'));
+  	}
+
 }
