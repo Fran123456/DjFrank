@@ -102,4 +102,12 @@
 <!--EPISODE-->
   @include('partials.courses.episode')
  <!--EPISODE-->
+
+ <!--REVIEWS FORM-->
+   @include('partials.courses.form_review')
+ <!--REVIEWS FORM-->
+
+  <!--REVIEWS-->
+    @include('partials.courses.reviews')
+  <!--REVIEWS-->
 @endsection

@@ -50,6 +50,10 @@ class User extends Authenticatable
 
     }
 
+    public function pathAttachment () {
+        return "/storage/users/" . $this->picture;
+    }
+
     /**
      * User belongs to Rol.
      *

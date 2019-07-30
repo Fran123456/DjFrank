@@ -7,6 +7,7 @@ use App\Episode;
 use App\Mail\NewStudentInCourse;
 use App\Student;
 use Illuminate\Support\Facades\DB;
+use App\review;
 
 class CourseController extends Controller
 {
@@ -58,8 +59,23 @@ class CourseController extends Controller
     public function subscribed () {
   		$courses = Course::whereHas('students', function($query) {
   			$query->where('user_id', auth()->id());
-  		})->get();
+  		})->paginate(15);
+
+     
   		return view('courses.subscribed', compact('courses'));
   	}
+
+    public function addReview () {
+    Review::create([
+      "user_id" => auth()->id(),
+      "course_id" => request('course_id'),
+      "rating" => (int) request('rating_input'),
+      "comment" => request('message')
+    ]);
+    return back()->with('message', [__("Has valorado el curso correctamente, Gracias!!"),'bg-teal']);
+  }
+
+
+    
 
 }

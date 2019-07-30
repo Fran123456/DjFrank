@@ -51,8 +51,9 @@ Route::group(['prefix' => "invoices"], function() {
 /*Route::group(['prefix' => 'Courses'], function(){
  Route::get('/{course}', 'CourseController@show')->name('courses.detail')
 });*/
+Route::get('/course/subscribed', 'CourseController@subscribed')->name('courses.subscribed');
+Route::post('/course/add_review', 'CourseController@addReview')->name('courses.add_review');
 Route::get('course/{course}', 'CourseController@show')->name('courses.detail');
 Route::get('course/{course}/{episode}', 'CourseController@episode')->name('episode');
 Route::get('/{course}/inscribe', 'CourseController@inscribe')->name('courses.inscribe');
-Route::get('/{course}', 'CourseController@show')->name('courses.detail');
-Route::get('/subscribed', 'CourseController@subscribed')->name('courses.subscribed');
+Route::get('/course/{course}', 'CourseController@show')->name('courses.detail');
