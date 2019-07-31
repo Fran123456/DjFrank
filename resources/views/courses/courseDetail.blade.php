@@ -77,7 +77,7 @@
            		@endcan
            @else
            		<!--No puede porque usted es el admin-->
-           		<h5 style="color: #EDEAEA">Usted es administrador/a del curso, no puede suscribirse.</h5>
+           		<h5 style="color: #EDEAEA">Usted es administrador, no puede suscribirse.</h5>
            @endcan
          @else
            	<!--	No identificado (guest)-->

@@ -11,9 +11,9 @@
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a href="{{ route('profile.index') }}"><i class="material-icons">person</i>Profile</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
+                            <li><a href="{{ route('profile.password') }}"><i class="material-icons">group</i>Contraseña</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                             <li role="separator" class="divider"></li>
@@ -53,23 +53,31 @@
                             <span>Mis cursos</span>
                         </a>
                     </li>
-                    <li>
+                     
+
+                      <li @routeis('profile.index') class="active" @endrouteis >
+                        <a href="{{ route('profile.index') }}">
+                            <i class="material-icons">save</i>
+                            <span>Mi perfil</span>
+                        </a>
+                    </li>
+
+                    <li @routeis('profile.index') class="active" @endrouteis >
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">trending_down</i>
-                            <span>Multi Level Menu</span>
+                            <span>Opciones</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="javascript:void(0);">
-                                    <span>Menu Item</span>
+                                <a href="">
+                                    <span>Cambiar contraseña</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);">
-                                    <span>Menu Item - 2</span>
+                                <a href="">
+                                    <span>Mi perfil</span>
                                 </a>
                             </li>
-
                         </ul>
                     </li>
                     <li>

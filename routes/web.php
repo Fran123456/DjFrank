@@ -57,3 +57,12 @@ Route::get('course/{course}', 'CourseController@show')->name('courses.detail');
 Route::get('course/{course}/{episode}', 'CourseController@episode')->name('episode');
 Route::get('/{course}/inscribe', 'CourseController@inscribe')->name('courses.inscribe');
 Route::get('/course/{course}', 'CourseController@show')->name('courses.detail');
+
+
+
+Route::group(["prefix" => "profile", "middleware" => ["auth"]], function() {
+	Route::get('/', 'ProfileController@index')->name('profile.index');
+	//Route::put('/', 'ProfileController@update')->name('profile.update');
+    Route::put('/', 'ProfileController@updatePassword')->name('profile.changePassword');
+	Route::get('/password', 'ProfileController@password')->name('profile.password');
+});

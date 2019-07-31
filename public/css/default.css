@@ -283,3 +283,21 @@ button.list-group-item:hover {
   border-radius: 150px;
 }
 
+.imgCircleProfile {
+  width: 104px;
+  height: 104px;
+  border-radius: 150px;
+}
+
+.profile-card .profile-header {
+  background-color: #3e4b92;
+  padding: 42px 0;
+}
+
+.profile-card .profile-body .image-area img {
+  border: 1px solid #818eda;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 50%;
+}
+

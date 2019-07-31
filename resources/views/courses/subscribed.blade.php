@@ -22,8 +22,8 @@
 
 <div class="jumbotron ">
   <div class="">
-    <h1 class="display-4 displayJumbo" style="color: #EDEAEA">Todos los cursos</h1>
-    <p class="lead paragraphJumbo" >Accede ya!3 a cualquier curso.</p>
+    <h1 class="display-4 displayJumbo" style="color: #EDEAEA">Mis subscripciones a cursos</h1>
+    <p class="lead paragraphJumbo" >Accede ya!! a cualquier curso.</p>
   </div>
 </div>
 

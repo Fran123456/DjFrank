@@ -14,7 +14,8 @@ class CoursePolicy
 
    public function opt_for_course(User $user, Course $course)
    {
-     return !$user->administrator || $user->administrator->id !== $course->administrator_id;
+    // return !$user->administrator || $user->administrator->id !== $course->administrator_id;
+     return !$user->administrator;
    }
 
    public function subscribe(User $user){
