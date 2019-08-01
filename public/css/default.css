@@ -301,3 +301,13 @@ button.list-group-item:hover {
   border-radius: 50%;
 }
 
+.bg-cyan2:hover {
+  background-color: #00bcd4 !important;
+  color: #fff;
+}
+
+.bg-cyan2:active {
+  background-color: #00bcd4 !important;
+  color: #fff;
+}
+

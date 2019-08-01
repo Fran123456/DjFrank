@@ -11,6 +11,12 @@ use App\review;
 
 class CourseController extends Controller
 {
+
+  public function __construct(){
+    $this->middleware('auth')->only(['episode']);
+  }
+
+
     public function show(Course $course){
       $course->load([
         'category',
@@ -44,8 +50,8 @@ class CourseController extends Controller
     }
 
     public function episode(Course $course, Episode $episode){
-      dd($episode);
-    	//return view('courses.episode');
+     // dd($episode);
+    	return view('courses.episode', compact('episode'));
     }
 
     public function inscribe (Course $course) {

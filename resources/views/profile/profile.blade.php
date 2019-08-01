@@ -79,9 +79,30 @@
                                         Profesión:
                                     </div>
                                     <div class="content">
-                                        {{$user->student->title}}
+                                    	@if($user->student->title == null)
+                                    	   No hay profesión
+                                    	@else
+											{{$user->student->title}}
+                                    	@endif
+                                        
                                     </div>
                                 </li>
+
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">library_books</i>
+                                        Telefono:
+                                    </div>
+                                    <div class="content">
+                                    	@if($user->phone == null)
+                                    	   No hay telefono registrado
+                                    	@else
+											{{$user->phone}}
+                                    	@endif
+                                        
+                                    </div>
+                                </li>
+
                                 @if($user->administrator != null)
                                 <li>
                                     <div class="title">
