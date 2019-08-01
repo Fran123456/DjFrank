@@ -8,6 +8,9 @@
 		     {!!$episode->video!!}
 		</div>
 	</div>
+	<div class="col-md-2">
+		
+	</div>
 	<div class="col-md-6">
 		{{$episode->title}}
 	</div>

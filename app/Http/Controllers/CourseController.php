@@ -31,13 +31,9 @@ class CourseController extends Controller
         }
       ])->withCount(['students','reviews'])->get();
 
-      $related = $course->relatedCourses();
-      // dd($course);
+      //$related = $course->relatedCourses();
       $colors = array('panel-success','panel-warning','panel-danger','panel-col-pink','panel-col-cyan','panel-col-teal');
       //van de 0 a 5
-
-    //  $users = Course::where('id' , $course->id)->first()->with('students.user')->paginate();
-
     $users = DB::table('course_student')
                 ->join('students', 'students.id', '=', 'course_student.student_id')
                 ->join('users', 'users.id', '=', 'students.user_id')
@@ -45,13 +41,16 @@ class CourseController extends Controller
                 ->where('course_student.course_id', $course->id)
                 ->paginate(20);
 
-
     return view('courses.courseDetail', compact('course','colors','users'));
     }
 
+
+
     public function episode(Course $course, Episode $episode){
      // dd($episode);
-    	return view('courses.episode', compact('episode'));
+
+      Episode::__smart($episode->orderEpisode, $episode->section_id);
+    	//return view('courses.episode', compact('episode'));
     }
 
     public function inscribe (Course $course) {

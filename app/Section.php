@@ -25,6 +25,6 @@ class Section extends Model
     public function episodes()
     {
     	// hasMany(RelatedModel, foreignKeyOnRelatedModel = section_id, localKey = id)
-    	return $this->hasMany(Episode::class);
+    	return $this->hasMany(Episode::class)->orderBy('orderEpisode');
     }
 }
