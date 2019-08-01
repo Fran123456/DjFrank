@@ -106,7 +106,7 @@
  <!--REVIEWS FORM-->
    @include('partials.courses.form_review')
  <!--REVIEWS FORM-->
-
+ <br>
   <!--REVIEWS-->
     @include('partials.courses.reviews')
   <!--REVIEWS-->

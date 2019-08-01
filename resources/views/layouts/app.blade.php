@@ -18,7 +18,7 @@
 
     <!-- Bootstrap Core Css -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-   
+
      <link href="{{ asset('css/waves.min.css') }}" rel="stylesheet">
      <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
      <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
@@ -26,7 +26,7 @@
      <link href="{{ asset('css/materialize.css') }}" rel="stylesheet">
      <!--CUSTOM CSS-->
      <link href="{{ asset('css/default.css') }}" rel="stylesheet">
- 
+
     <!-- Bootstrap Core Css -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
@@ -37,7 +37,7 @@
     <script src="{{ asset('js/waves.min.js') }}"></script>
      <script src="{{ asset('js/bootstrap-notify.min.js') }}"></script>
       <script src="{{ asset('js/notifications.js') }}"></script>
-     
+
      <script src="{{ asset('js/admin.js') }}"></script>
     <script src="{{ asset('js/demo.js') }}"></script>
 
@@ -50,11 +50,11 @@
             white-space: nowrap;
             position: relative;
             border-bottom: 1px solid #e9e9e9;
-            background: url(../images/backlogin2.jpg) no-repeat no-repeat;
+            background: url(/images/backlogin2.jpg) no-repeat no-repeat;
             height: 135px;
         }
 
-        
+
     </style>
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
@@ -64,26 +64,26 @@
 
 <body class="theme-indigo" >
 
-    
+
     <!-- Page Loader -->
     @include('partials.layout.loader')
     <!-- Page Loader -->
-   
+
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
-    
+
     <!-- Top Bar -->
     @include('partials.layout.nav')
     <!-- Top Bar -->
-    
+
     <section>
         <!-- Left Sidebar -->
         @auth
            @include('partials.layout.leftSidebar')
         @endauth
         {{--@include('partials.layout.leftSidebar')--}}
-        
+
         <!-- Left Sidebar -->
         <!-- Right Sidebar -->
         @include('partials.layout.rightSidebar')
@@ -103,7 +103,7 @@
         @endguest
     </section>
 
-   
+
 </body>
 
 </html>

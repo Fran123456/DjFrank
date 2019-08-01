@@ -311,3 +311,23 @@ button.list-group-item:hover {
   color: #fff;
 }
 
+.heartColor {
+  color: red;
+}
+
+.caja {
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.caja-sin-p10 {
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+

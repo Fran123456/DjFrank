@@ -143,18 +143,18 @@ hr {
 
 .liLanguage{
     list-style:none;
-    text-decoration:none; 
+    text-decoration:none;
     padding-top: 10px;
     padding-bottom: 10px;
     color: black;
     margin-left: -19px;
 }
 
-.aLanguage, a:link 
-{ 
-text-decoration:none; 
+.aLanguage, a:link
+{
+text-decoration:none;
 color: black;
-} 
+}
 
 
 //course.blade.php
@@ -228,7 +228,7 @@ font-size: 17px;
 .paragraphJumbo{
     color: white;
     font-family: "Trebuchet MS", Helvetica, sans-serif  ;
-     
+
 
 }
 
@@ -314,8 +314,8 @@ a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus, 
 
 .profile-card .profile-body .image-area img {
     border: 1px solid #818eda;
-     padding: 0px; 
-     margin: 0px; 
+     padding: 0px;
+     margin: 0px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
@@ -331,4 +331,27 @@ a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus, 
 .bg-cyan2:active {
     background-color: #00bcd4 !important;
     color: #fff;
+}
+
+
+//Episode
+
+.heartColor{
+  color: red;
+}
+
+.caja{
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.caja-sin-p10{
+  background-color: white;
+  padding-left: 20px;
+  padding-right:20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

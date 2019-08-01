@@ -48,9 +48,8 @@ class CourseController extends Controller
 
     public function episode(Course $course, Episode $episode){
      // dd($episode);
-
-      Episode::__smart($episode->orderEpisode, $episode->section_id);
-    	//return view('courses.episode', compact('episode'));
+      $help = Episode::__smart($episode->orderEpisode, $episode->section_id);
+    	return view('courses.episode', compact('episode','help', 'course'));
     }
 
     public function inscribe (Course $course) {
@@ -66,7 +65,7 @@ class CourseController extends Controller
   			$query->where('user_id', auth()->id());
   		})->paginate(15);
 
-     
+
   		return view('courses.subscribed', compact('courses'));
   	}
 
@@ -81,6 +80,6 @@ class CourseController extends Controller
   }
 
 
-    
+
 
 }
