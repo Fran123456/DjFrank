@@ -15,6 +15,7 @@ class CreateEpisodesTable extends Migration
     {
         Schema::create('episodes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->BigInteger('orderEpisode')->nullable();
             $table->string('title');
             $table->text('description')->nullable();
             $table->text('video')->nullable();
