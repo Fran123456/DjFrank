@@ -49,7 +49,8 @@ class CourseController extends Controller
     public function episode(Course $course, Episode $episode){
      // dd($episode);
       $help = Episode::__smart($episode->orderEpisode, $episode->section_id);
-    	return view('courses.episode', compact('episode','help', 'course'));
+      $caps = Episode::__optional($episode->orderEpisode , $episode->section_id);
+    	return view('courses.episode', compact('episode','help', 'course','caps'));
     }
 
     public function inscribe (Course $course) {
@@ -59,7 +60,11 @@ class CourseController extends Controller
   		return back()->with('message', [__("Te has inscrito correctamente al curso"),'bg-teal']);
   	}
 
-
+    public function reacction(Request $request){
+     echo $request->value;
+     echo "";
+    // echo $request->control_id;
+    }
     public function subscribed () {
   		$courses = Course::whereHas('students', function($query) {
   			$query->where('user_id', auth()->id());

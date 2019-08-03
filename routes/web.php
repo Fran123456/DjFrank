@@ -57,7 +57,7 @@ Route::get('course/{course}', 'CourseController@show')->name('courses.detail');
 Route::get('course/{course}/{episode}', 'CourseController@episode')->name('episode');
 Route::get('/{course}/inscribe', 'CourseController@inscribe')->name('courses.inscribe');
 Route::get('/course/{course}', 'CourseController@show')->name('courses.detail');
-
+Route::get('/reaction', 'CourseController@reacction')->name('course.emoji');
 
 
 Route::group(["prefix" => "profile", "middleware" => ["auth"]], function() {
@@ -71,6 +71,7 @@ Route::group(["prefix" => "profile", "middleware" => ["auth"]], function() {
 
 Route::group(['prefix' => "administration", "middleware" => ["auth"]], function() {
 	Route::get('/courses', 'AdministratorController@courses')->name('teacher.courses');
+
 	//Route::get('/students', 'TeacherController@students')->name('teacher.students');
 	//Route::post('/send_message_to_student', 'TeacherController@sendMessageToStudent')->name('teacher.send_message_to_student');
 });

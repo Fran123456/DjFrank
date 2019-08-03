@@ -34,6 +34,8 @@ class Episode extends Model
     	return $this->belongsTo(Course::class);
     }
 
+    
+
 
     public static function __smart($orderEpisodeActually , $section){
        $orders = Episode::where('section_id' , $section)->orderBy('orderEpisode')->get();
@@ -58,6 +60,16 @@ class Episode extends Model
 
       $help = array($next, $previous);
       return $help;
-
    }
+
+   public static function  __optional($Actually , $section){
+     for ($i=0; $i <4 ; $i++) {
+       $caps[$i] = Episode::where('section_id' , $section)->where('orderEpisode', '!=', $Actually)->inRandomOrder()->first();
+     }
+     return $caps;
+   }
+
+
+
+
 }
