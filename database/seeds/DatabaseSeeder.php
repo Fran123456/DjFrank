@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         //Deleting images from storage
   
-     //   Storage::deleteDirectory('public/users');
-     //   Storage::deleteDirectory('public/users');
+      //   Storage::deleteDirectory('public/users');
+      //   Storage::deleteDirectory('public/users');
       //  Storage::deleteDirectory('public/episodes');
         
         
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
        // Storage::makeDirectory('public/users');
        // Storage::makeDirectory('public/episodes');
        
-        //Factory from Role
+       //Factory from Role
         factory(Role::class, 1)->create([
           'rol' => 'admin',
         ]);
@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
         });
       
        //Factory from users also make a student register
-       factory(User::class, 50)->create(['role_id' => Role::STUDENT])
+       factory(User::class, 10)->create(['role_id' => Role::STUDENT])
        ->each(function(User $u){
        	//making student register
        	factory(Student::class , 1)->create([
@@ -97,14 +97,23 @@ class DatabaseSeeder extends Seeder
         $c->requirements()->saveMany(factory(Requirement::class, 2)->create(
           ['course_id' => $c->id]
         ));
+
+        
+
         //Factory from section, also make episodes from specific section
         $c->sections()->saveMany(factory(Section::class, rand(2,6))->create(['course_id' => $c->id])
           ->each(function(Section $sec){
+            $GLOBALS['counter'] = 0;
             $sec->episodes()->saveMany(factory(Episode::class, rand(4,10))->create(
               [
+               'orderEpisode' =>function () {
+                    $GLOBALS['counter']++;
+                    return $GLOBALS['counter'];
+                }, 
                'course_id' => $GLOBALS['variable'],
                'section_id' => $sec->id
               ]
+              
             ));
           })
          );
