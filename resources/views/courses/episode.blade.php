@@ -19,12 +19,13 @@ $(document).ready(function() {
 <style media="screen">
 .FB_reactions span {
 	display: block;
-	padding: 9px 9px 24px 30px;
-	text-align: left;
+	padding: 9px 9px 24px 26px;
+	text-align: center;
 }
 
-
-
+.embed-responsive-16by9 {
+    padding-bottom: 45.25%;
+}
 </style>
 
 <div class="row">
@@ -32,7 +33,7 @@ $(document).ready(function() {
 	 <!--VIDEO-->
 		 <div class="col-md-12 ">
 	 		<div class="embed-responsive embed-responsive-16by9">
-					{!!$episode->video!!}
+			  {!!$episode->video!!}
 	 		</div>
 	 	</div>
 		 <!--VIDEO-->
