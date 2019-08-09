@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Episode;
 use App\Mail\NewStudentInCourse;
 use App\Student;
+use App\Reaction;
 use Illuminate\Support\Facades\DB;
 use App\review;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -50,7 +52,9 @@ class CourseController extends Controller
      // dd($episode);
       $help = Episode::__smart($episode->orderEpisode, $episode->section_id);
       $caps = Episode::__optional($episode->orderEpisode , $episode->section_id);
-    	return view('courses.episode', compact('episode','help', 'course','caps'));
+      $reactions = Reaction::get_reaction($episode->id);
+      $myReaction = Reaction::my_reaction($episode->id, Auth::id());
+    	return view('courses.episode', compact('episode','help', 'course','caps','reactions','myReaction'));
     }
 
     public function inscribe (Course $course) {
@@ -62,8 +66,23 @@ class CourseController extends Controller
 
     public function reacction(Request $request){
      echo $request->value;
-     echo "";
-    // echo $request->control_id;
+     
+    $aux = Reaction::where('episode_id', $request->episode)
+    ->where('user_id', $request->user)->first();
+
+    if($aux != null){
+      Reaction::find($aux->id)->update([
+       'reaction'=>$request->value
+      ]);
+    }else{
+       Reaction::create([
+        'episode_id' =>$request->episode,
+        'user_id' => $request->user,
+        'reaction'=>$request->value,
+       ]);
+    }
+
+     
     }
     public function subscribed () {
   		$courses = Course::whereHas('students', function($query) {
@@ -84,13 +103,7 @@ class CourseController extends Controller
     return back()->with('message', [__("Has valorado el curso correctamente, Gracias!!"),'bg-teal']);
   }
 
-  public function reactions_count($course_id, $cap){
-    $reactions = DB::table('reactions')->where('curso_id', $course_id)->where('capitulo_id', $cap)->get();
-    $reactions = count($reactions);
-    return $reactions;
-  }
-
-
+  
 
 
 }

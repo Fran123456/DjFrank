@@ -100,8 +100,12 @@
 		// ajax
 		function __ajax(control_id, value){
 
+			 var user = $('#user').val();
+			 var episode = $('#episode').val();
+			 var ant =  $('#ant').val();
+
 			// here we have control id and value. We need to save them into db. You can change it according to yours requirements.
-			var formData = "control_id="+control_id+"&value="+value;
+			var formData = "control_id="+control_id+"&value="+value+"&user="+user+"&episode="+episode;
 
 			$.ajax({
 				type	:	'GET', // define the type of HTTP verb we want to use (POST for our form)
@@ -111,6 +115,17 @@
 
 					// nothing requires here but you can add something here.
 					console.log(data);
+					var valor = $('#'+value).text();
+					valor = parseInt(valor);
+					valor = valor+1;
+					$('#'+value).text(valor);
+					console.log(valor);
+
+					oldReaction = $('#'+ant).text();
+					oldReaction = parseInt(oldReaction) - 1;
+					$('#'+ant).text(oldReaction);
+					$('#ant').val(value);
+
 				},
 				error: function() {
 					alert(settings.postUrl);

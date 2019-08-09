@@ -336,3 +336,8 @@ button.list-group-item:hover {
   padding-top: 10px;
 }
 
+.reactionsList {
+  padding-right: 17px;
+  padding-left: 17px;
+}
+
