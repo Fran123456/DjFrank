@@ -16,35 +16,45 @@ $(document).ready(function() {
 });
 </script>
 
+<style media="screen">
+.FB_reactions span {
+	display: block;
+	padding: 9px 9px 24px 30px;
+	text-align: left;
+}
+
+
+
+</style>
+
 <div class="row">
-	<br>
+
 	 <!--VIDEO-->
-		 <div class="col-md-12 col-xs-12 col-sm-12">
+		 <div class="col-md-12 ">
 	 		<div class="embed-responsive embed-responsive-16by9">
-	 		     {!!$episode->video!!}
+					{!!$episode->video!!}
 	 		</div>
 	 	</div>
 		 <!--VIDEO-->
 
-		  <!--BUTTONS -->
-			<div class="col-md-12 text-center ">
-
-		 	 <div class="video-p-10" style="padding-top:10px; padding-bottom:10px;">
-		 		 @if ($help[1] != null)
-		 		 @endif
-				 <a class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="">
- 						<span>Like</span>
- 				</a>
-		 		 @if ($help[0] != null)
-		 			 <a style="color:white" href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$help[0]->slug] ) }}" class="btn btn-info "><i class="fas fa-forward fa-2x"></i></a>
-		 		 @endif
-		 	 </div>
-		  </div>
-			 <!--BUTTONS -->
-
       <!--TITLE Y DESCRIPTION -->
 			 <div class="col-md-12">
 		 		<div class="caja-sin-p10">
+          <div class="text-center">
+					  	<div class="video-p-10" style="padding-top:10px; padding-bottom:10px;">
+						 @if ($help[1] != null)
+							 <a style="color:white" href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$help[1]->slug] ) }}" class="btn btn-info "><i class="fas fa-backward fa-2x"></i></a>
+						 @endif
+						 <a style="width:55px" class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="">
+									<span></span>
+							</a>
+						 @if ($help[0] != null)
+							 <a style="color:white" href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$help[0]->slug] ) }}" class="btn btn-info "><i class="fas fa-forward fa-2x"></i></a>
+						 @endif
+					   </div>
+          </div>
+
+
 		 			<h3>{{strtoupper($episode->title)}}</h3>
 		 		</div>
 		 		<div class="caja">

@@ -84,6 +84,12 @@ class CourseController extends Controller
     return back()->with('message', [__("Has valorado el curso correctamente, Gracias!!"),'bg-teal']);
   }
 
+  public function reactions_count($course_id, $cap){
+    $reactions = DB::table('reactions')->where('curso_id', $course_id)->where('capitulo_id', $cap)->get();
+    $reactions = count($reactions);
+    return $reactions;
+  }
+
 
 
 

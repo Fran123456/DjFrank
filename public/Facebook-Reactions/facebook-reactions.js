@@ -84,7 +84,7 @@
 						 // add icon class
 						base.attr("data-emoji-class", emoji_value);
 						// change text
-						base.find('span').html(emoji_value);
+					//	base.find('span').html(emoji_value); //TEXTO EN EL EMOJI
 
 						if ( settings.postUrl ) {
 
