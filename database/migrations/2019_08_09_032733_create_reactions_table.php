@@ -18,6 +18,7 @@ class CreateReactionsTable extends Migration
            // $table->bigInteger('course_id')->nullable();
             $table->unsignedBigInteger('episode_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->string('reaction')->nullable();
             $table->timestamps();
 
             //relationships
