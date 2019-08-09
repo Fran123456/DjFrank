@@ -33,7 +33,8 @@ $(document).ready(function() {
 
 <input type="hidden" name="user" id="user" value="{{Auth::id()}}">
 <input type="hidden" name="episode" id="episode" value="{{$episode->id}}">
-<input type="hidden" name="ant" id="ant" value="{{$myReaction->reaction}}">
+
+
 
 	 <!--VIDEO-->
 		 <div class="col-md-12 ">
@@ -51,9 +52,19 @@ $(document).ready(function() {
 						 @if ($help[1] != null)
 							 <a style="color:white" href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$help[1]->slug] ) }}" class="btn btn-info "><i class="fas fa-backward fa-2x"></i></a>
 						 @endif
-						 <a style="width:55px" class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="{{$myReaction->reaction}}">
-									<span></span>
-							</a>
+
+						 @if($myReaction == null)
+                             <a style="width:55px" class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="like"><span></span>
+						   </a>
+
+						   <input type="hidden" name="ant" id="ant" value="like">
+						 @else
+                           <a   style="width:55px" class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="{{$myReaction->reaction}}"><span></span>
+						   </a>
+
+						   <input type="hidden" name="ant" id="ant" value="{{$myReaction->reaction}}">
+						 @endif
+						 
 						 @if ($help[0] != null)
 							 <a style="color:white" href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$help[0]->slug] ) }}" class="btn btn-info "><i class="fas fa-forward fa-2x"></i></a>
 						 @endif
@@ -63,7 +74,7 @@ $(document).ready(function() {
 
                    <br>
                    <div class="text-center">
-                   @foreach ($reactions as  $key => $element)
+                    @foreach ($reactions as  $key => $element)
                     <img height="40px" width="40px" src="{{ asset('Facebook-Reactions/emojis/'.$key.'.svg') }}">
                     @endforeach 
                          <br>
@@ -71,6 +82,7 @@ $(document).ready(function() {
                       <span id="{{$key}}" class="reactionsList">{{$element}}</span>
                     @endforeach 
                    </div>
+
 		 			<h3>{{strtoupper($episode->title)}}</h3>
 		 		</div>
 		 		<div class="caja">

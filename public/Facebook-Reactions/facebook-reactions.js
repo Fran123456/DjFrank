@@ -114,17 +114,27 @@
 				success	:	function(data){
 
 					// nothing requires here but you can add something here.
-					console.log(data);
-					var valor = $('#'+value).text();
-					valor = parseInt(valor);
-					valor = valor+1;
-					$('#'+value).text(valor);
-					console.log(valor);
+                   
+                    
+                    oldReaction = $('#'+ant).text();
+                    oldReaction = parseInt(oldReaction);
 
-					oldReaction = $('#'+ant).text();
-					oldReaction = parseInt(oldReaction) - 1;
-					$('#'+ant).text(oldReaction);
-					$('#ant').val(value);
+                    if(oldReaction == 0){
+
+                    }else{
+                    	oldReaction = oldReaction-1;
+                    	$('#'+ant).text(oldReaction);
+					    $('#ant').val(value);
+                    }
+					
+                        var valor = $('#'+value).text();
+					    valor = parseInt(valor);
+					    valor = valor+1;
+					    $('#'+value).text(valor);
+					
+					
+			
+
 
 				},
 				error: function() {
@@ -139,7 +149,7 @@
 			window.tmr;
 			window.selector = _this.get(0).className;
 
-			$(this).find('span').click(function(e) {
+		/*	$(this).find('span').click(function(e) {
 
 				if(e.target !== e.currentTarget) return;
 				var isLiked = $(this).parent().attr("data-emoji-class");
@@ -161,7 +171,7 @@
 					if ( settings.postUrl )
 						__ajax(control_id, "like");
 				}
-			});
+			});*/
 
 			$(this).hover(function (){
 
