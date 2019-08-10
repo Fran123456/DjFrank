@@ -344,8 +344,9 @@ a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus, 
   background-color: white;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 20px;
+  padding-top: 3px;
   padding-bottom: 20px;
+
 }
 
 .caja-sin-p10{
@@ -364,4 +365,10 @@ a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus, 
 .reactionsList{
     padding-right: 17px; 
     padding-left: 17px;
+}
+
+.info-box-res {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+   
 }

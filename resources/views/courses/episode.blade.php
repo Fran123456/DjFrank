@@ -24,7 +24,23 @@ $(document).ready(function() {
 }
 
 .embed-responsive-16by9 {
-    padding-bottom: 45.25%;
+    padding-bottom: 48.25%;
+}
+
+.info-box-2 {
+    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+     height: 40px; 
+    display: flex;
+    cursor: default;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.info-box-2 .content {
+    display: inline-block;
+    padding: 4px 5px;
 }
 </style>
 
@@ -47,45 +63,49 @@ $(document).ready(function() {
       <!--TITLE Y DESCRIPTION -->
 			 <div class="col-md-12">
 		 		<div class="caja-sin-p10">
-          <div class="text-center">
-					  	<div class="video-p-10" style="padding-top:10px; padding-bottom:10px;">
-						 @if ($help[1] != null)
-							 <a style="color:white" href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$help[1]->slug] ) }}" class="btn btn-info "><i class="fas fa-backward fa-2x"></i></a>
-						 @endif
+	                 <div class="text-center">
+						  	<div class="video-p-10" style="padding-top:10px; padding-bottom:10px;">
+							 @if ($help[1] != null)
+								 <a style="color:white" href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$help[1]->slug] ) }}" class="btn btn-info "><i class="fas fa-backward fa-2x"></i></a>
+							 @endif
 
-						 @if($myReaction == null)
-                             <a style="width:55px" class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="like"><span></span>
-						   </a>
+							 @if($myReaction == null)
+	                             <a style="width:50px" class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="like"><span></span>
+							   </a>
 
-						   <input type="hidden" name="ant" id="ant" value="like">
-						 @else
-                           <a   style="width:55px" class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="{{$myReaction->reaction}}"><span></span>
-						   </a>
+							   <input type="hidden" name="ant" id="ant" value="like">
+							 @else
+	                           <a   style="width:50px" class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="{{$myReaction->reaction}}"><span></span>
+							   </a>
 
-						   <input type="hidden" name="ant" id="ant" value="{{$myReaction->reaction}}">
-						 @endif
-						 
-						 @if ($help[0] != null)
-							 <a style="color:white" href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$help[0]->slug] ) }}" class="btn btn-info "><i class="fas fa-forward fa-2x"></i></a>
-						 @endif
-					   </div>
-          </div>
-                    
-
+							   <input type="hidden" name="ant" id="ant" value="{{$myReaction->reaction}}">
+							 @endif
+							 
+							 @if ($help[0] != null)
+								 <a style="color:white" href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$help[0]->slug] ) }}" class="btn btn-info "><i class="fas fa-forward fa-2x"></i></a>
+							 @endif
+						   </div>
+	                </div>
                    <br>
-                   <div class="text-center">
+
+                   <div class="row text-center">
                     @foreach ($reactions as  $key => $element)
-                    <img height="40px" width="40px" src="{{ asset('Facebook-Reactions/emojis/'.$key.'.svg') }}">
-                    @endforeach 
-                         <br>
-                     @foreach ($reactions as  $key => $element)
-                      <span id="{{$key}}" class="reactionsList">{{$element}}</span>
+                   <!-- <img height="40px" width="40px" src="{{-- asset('Facebook-Reactions/emojis/'.$key.'.svg')--}}">-->
+                    <div style="margin-top: 5px" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center">
+                    <div style="padding-top: 5px; padding-bottom: 5px;" class="info-box-res text-center">
+                        
+                             <img class="text-center"  height="30px" width="30px" src="{{ asset('Facebook-Reactions/emojis/'.$key.'.svg')}}">
+                              <span id="{{$key}}" class="">{{$element}}</span>
+                        
+                    </div>
+                   </div>
                     @endforeach 
                    </div>
 
-		 			<h3>{{strtoupper($episode->title)}}</h3>
 		 		</div>
+
 		 		<div class="caja">
+		 			<h3 style="">{{strtoupper($episode->title)}}</h3>
 		 			<img class="imgCircle" src="{{$course->administrator->user->pathAttachment()}}">
 		 		 &nbsp;&nbsp;Publicado por <strong>{{$course->administrator->user->name}}</strong> el {{ $episode->created_at->format('d/m/Y') }}
 		 		 <br><br>
@@ -110,7 +130,7 @@ $(document).ready(function() {
 	 	</div>
 			<div class="row" >
 		 		@for ($i=0; $i <count($caps); $i++)
-					<div class="col-md-3 col-sm-3 col-xs-3" >
+					<div class="col-md-3 col-sm-4 col-xs-6" >
 						<div class="card text-center" style="width: 200px; ">
 							<a href="{{ route('episode', ['course'=> $course->slug , 'episode' =>$caps[$i]->slug] ) }}">
 								<img src="/storage/episodes/{{$caps[$i]->picture}}" class="card-img-top"  height="125" width="200">
